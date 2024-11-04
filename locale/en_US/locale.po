@@ -1,0 +1,5 @@
+msgid "plugins.themes.tibOPTheme.name"
+msgstr "TIB Open Publishing Theme"
+
+msgid "plugins.themes.tibOPTheme.description"
+msgstr "Custom theme for journals and conference proceedings hosted by TIB Open Publishing."
