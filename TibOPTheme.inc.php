@@ -29,6 +29,8 @@ class TibOPTheme extends ThemePlugin
         }
 
         $this->addViteAssets(['src/main.js']);
+
+        HookRegistry::register('TemplateManager::display', [$this, 'addTibFooter']);
     }
 
     public function getDisplayName()
@@ -50,6 +52,24 @@ class TibOPTheme extends ThemePlugin
         $baseUrl = rtrim($request->getBaseUrl(), '/');
         $pluginPath = rtrim($this->getPluginPath(), '/');
         return "{$baseUrl}/{$pluginPath}";
+    }
+
+    /**
+     * Add the TIB footer by injecting the HTML into the
+     * $pageFooter template variable.
+     */
+    public function addTibFooter (string $hookName, array $args): bool
+    {
+        /** @var TemplateManager */
+        $templateMgr = $args[0];
+
+        $tibFooter = $templateMgr->fetch('frontend/tibop-footer.tpl');
+
+        $templateMgr->assign([
+            'pageFooter' => $tibFooter
+        ]);
+
+        return false;
     }
 
     /**
