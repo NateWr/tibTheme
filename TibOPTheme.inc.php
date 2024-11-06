@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
+use NateWr\themehelper\Plugin;
 use NateWr\themehelper\ThemeHelper;
 use NateWr\vite\Loader;
 
@@ -30,7 +31,8 @@ class TibOPTheme extends ThemePlugin
 
         $this->addViteAssets(['src/main.js']);
 
-        HookRegistry::register('TemplateManager::display', [$this, 'addTibFooter']);
+        HookRegistry::register('TemplateManager::display', [$this, 'addGlobalTemplateData']);
+        HookRegistry::register('TemplateManager::display', [$this, 'displayTemplate'], HOOK_SEQUENCE_LAST);
     }
 
     public function getDisplayName()
@@ -55,10 +57,12 @@ class TibOPTheme extends ThemePlugin
     }
 
     /**
-     * Add the TIB footer by injecting the HTML into the
-     * $pageFooter template variable.
+     * Add custom data to all frontend templates
+     *
+     * This callback always returns false, so it never blocks other
+     * callbacks registered to the same hook.
      */
-    public function addTibFooter (string $hookName, array $args): bool
+    public function addGlobalTemplateData(string $hookName, array $args): bool
     {
         /** @var TemplateManager */
         $templateMgr = $args[0];
@@ -68,13 +72,103 @@ class TibOPTheme extends ThemePlugin
             return false;
         }
 
-        $tibFooter = $templateMgr->fetch('frontend/tibop-footer.tpl');
-
         $templateMgr->assign([
-            'pageFooter' => $tibFooter
+            'tibopSitePolicyMenu' => $this->getMenu(
+                'policy',
+                CONTEXT_ID_NONE,
+                'frontend/tibop-menu-policy.tpl',
+            ),
         ]);
 
         return false;
+    }
+
+    /**
+     * Insert custom HTML into the rendered templates
+     *
+     * This callback intercepts and modifies the HTML rendered by
+     * the template engine. No further callbacks will be fired
+     * after this one, so it should always be registered as the
+     * last callback.
+     *
+     * If possible, use self::addGlobalTemplateData() instead.
+     */
+    public function displayTemplate(string $hookName, array $args): bool
+    {
+        /** @var TemplateManager */
+        $templateMgr = $args[0];
+        $template = $args[1];
+        $output =& $args[2];
+
+        if (substr($template, 0, 8) !== 'frontend') {
+            return false;
+        }
+
+        if ($template === 'frontend/pages/indexJournal.tpl') {
+            $contextId = Application::get()->getRequest()->getContext()?->getId() ?? CONTEXT_ID_NONE;
+            $output = $templateMgr->fetch('frontend/pages/indexJournal.tpl');
+            $output = $this->addQuickLinksMenu($output, $contextId);
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Add the Quick Links menu to the about the journal section
+     * on the homepage
+     *
+     * Uses regex to insert the navigation menu at the end of the
+     * section.homepage_about element.
+     */
+    protected function addQuickLinksMenu(string $homepageHtml, int $contextId): string
+    {
+        preg_match(
+            '/(\<section class=\"homepage_about\"\>[\S\s]+?(?=\<\/section\>))/',
+            $homepageHtml,
+            $matches,
+            PREG_OFFSET_CAPTURE
+        );
+
+        if (empty($matches)) {
+            return $homepageHtml;
+        }
+
+        $offset = $matches[0][1] + strlen($matches[0][0]);
+        $menu = $this->getMenu('quickLinks', $contextId);
+
+        return substr_replace($homepageHtml, $menu, $offset, 0);
+    }
+
+    /**
+     * Get a navigation menu's template
+     */
+    protected function getMenu(string $name, int $contextId =  CONTEXT_ID_NONE, string $path = ''): string
+    {
+        /** @var NavigationMenuDAO $navigationMenuDao */
+        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+        $navigationMenus = $navigationMenuDao->getByArea($contextId, $name)->toArray();
+
+        if (!isset($navigationMenus[0])) {
+            return '';
+        }
+
+        $navigationMenu = $navigationMenus[0];
+        Services::get('navigationMenu')->getMenuTree($navigationMenu);
+
+        $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
+        $templateMgr->assign([
+            'navigationMenu' => $navigationMenu,
+            'id' => '',
+            'ulClass' => '',
+            'liClass' => '',
+        ]);
+
+        if (!$path) {
+            $path = 'frontend/components/navigationMenu.tpl';
+        }
+
+        return $templateMgr->fetch($path);
     }
 
     /**
@@ -87,6 +181,26 @@ class TibOPTheme extends ThemePlugin
     {
         $this->themeHelper = new ThemeHelper(TemplateManager::getManager(Application::get()->getRequest()));
         $this->themeHelper->registerDefaultPlugins();
+        $this->themeHelper->addPlugin(new Plugin('function', 'load_menu', [$this, 'loadMenu'], true));
+    }
+
+    /**
+     * Override the default {load_menu} template tag
+     *
+     * Injects the TIB OP logo and language selection to the mobile
+     * dropdown menu by attaching it at the end of the user menu.
+     */
+    public function loadMenu(array $params, $smarty): string
+    {
+        $output = $smarty->smartyLoadNavigationMenuArea($params, $smarty);
+
+        if ($params['name'] === 'user' && $params['id'] === 'navigationUser') {
+            $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
+            $template = $templateMgr->fetch('frontend/tibop-mobile-dropdown.tpl');
+            return $output . $template;
+        }
+
+        return $output;
     }
 
     /**
