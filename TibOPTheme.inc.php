@@ -23,9 +23,9 @@ class TibOPTheme extends ThemePlugin
 
         $request = Application::get()->getRequest();
         if ($request->getContext()) {
-            $this->addMenuArea(['primary', 'user']);
+            $this->addMenuArea(['primary', 'user', 'quicklinks']);
         } else {
-            $this->addMenuArea(['primary', 'user', 'policy']);
+            $this->addMenuArea(['primary', 'user', 'quicklinks', 'policy']);
         }
 
         $this->addViteAssets(['src/main.js']);
@@ -62,6 +62,11 @@ class TibOPTheme extends ThemePlugin
     {
         /** @var TemplateManager */
         $templateMgr = $args[0];
+        $template = $args[1];
+
+        if (substr($template, 0, 8) !== 'frontend') {
+            return false;
+        }
 
         $tibFooter = $templateMgr->fetch('frontend/tibop-footer.tpl');
 
