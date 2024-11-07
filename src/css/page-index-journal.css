@@ -1,0 +1,9 @@
+/**
+ * Styles for the journal homepage
+ */
+@media (--tablets-landscape) {
+
+  .homepage_image.homepage_image {
+    margin-top: 0;
+  }
+}

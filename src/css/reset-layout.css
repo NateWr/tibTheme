@@ -1,0 +1,147 @@
+/**
+ * Styles to reset layout constraints in
+ * the default OJS theme
+ *
+ * Sets new width constraints for the header, footer,
+ * and page content. Also removes borders and other
+ * layout artifacts.
+ */
+body,
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  color: black;
+}
+
+body {
+  --page-inline-padding: 0.75rem;
+  --page-width: 100%;
+}
+
+.pkp_structure_head {
+  border: none;
+}
+
+.pkp_site_name_wrapper::after,
+.pkp_navigation_primary_wrapper::after,
+.pkp_navigation_user::after,
+.pkp_search_mobile::after,
+.pkp_structure_content::after,
+.pkp_structure_footer::after,
+.pkp_site_name_wrapper::before,
+.pkp_navigation_primary_wrapper::before,
+.pkp_navigation_user::before,
+.pkp_search_mobile::before,
+.pkp_structure_content::before,
+.pkp_structure_footer::before,
+.pkp_structure_content::after,
+.pkp_structure_footer::after,
+.pkp_site_name_wrapper::after,
+.pkp_navigation_primary_wrapper::after,
+.pkp_navigation_user::after,
+.pkp_search_mobile::after,
+.pkp_site_name_wrapper::after,
+.pkp_navigation_primary_wrapper::after,
+.pkp_navigation_user::after,
+.pkp_search_mobile::after,
+.pkp_structure_main::before,
+.pkp_structure_main::after {
+  content: none !important;
+}
+
+.pkp_structure_content {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.pkp_structure_main {
+  float: none !important;
+  padding: 0;
+}
+
+.page {
+  padding: 1.5rem var(--page-inline-padding);
+}
+
+.page_index_journal {
+  padding: 0 var(--page-inline-padding);
+}
+
+.homepage_image.homepage_image {
+  margin-left: calc(-1 * var(--page-inline-padding));
+  margin-right: calc(-1 * var(--page-inline-padding));
+}
+
+@media (--tablets) {
+
+  body {
+    --page-inline-padding: 2rem;
+  }
+
+  .pkp_site_name_wrapper,
+  .pkp_structure_content {
+    width: var(--page-width);
+  }
+
+  .page {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (--tablets-landscape) {
+
+  .pkp_structure_main,
+  .pkp_structure_main:first-child:last-child {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: var(--page-width);
+  }
+
+  .pkp_site_name_wrapper,
+  .pkp_navigation_primary_wrapper {
+    width: var(--page-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--page-inline-padding);
+    padding-right: var(--page-inline-padding);
+  }
+
+  .page_index_journal {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .homepage_image.homepage_image {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (--laptops-sm) {
+
+  body {
+    --page-inline-padding: 0;
+    --page-width: 1024px;
+  }
+
+  .page,
+  .page_index_journal {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (--laptops) {
+
+  body {
+    --page-inline-padding: 0;
+    --page-width: 1280px;
+  }
+
+  .page,
+  .page_index_journal {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
