@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-use NateWr\themehelper\Plugin;
+use NateWr\themehelper\TemplatePlugin;
 use NateWr\themehelper\ThemeHelper;
 use NateWr\vite\Loader;
 
@@ -180,8 +180,15 @@ class TibOPTheme extends ThemePlugin
     protected function useThemeHelper(): void
     {
         $this->themeHelper = new ThemeHelper(TemplateManager::getManager(Application::get()->getRequest()));
-        $this->themeHelper->registerDefaultPlugins();
-        $this->themeHelper->addPlugin(new Plugin('function', 'load_menu', [$this, 'loadMenu'], true));
+        $this->themeHelper->addCommonTemplatePlugins();
+        $this->themeHelper->addTemplatePlugin(
+            new TemplatePlugin(
+                type: 'function',
+                name: 'load_menu',
+                callback: [$this, 'loadMenu'],
+                override: true
+            )
+        );
     }
 
     /**
