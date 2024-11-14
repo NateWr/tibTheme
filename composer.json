@@ -1,19 +1,9 @@
 {
-  "name": "slub/slub-theme",
-  "description": "Custom OJS theme for journals hosted by SLUB.",
-  "license": "GPL",
-  "repositories": [
-      {
-          "type": "vcs",
-          "url": "https://github.com/NateWr/pkp-theme-helper"
-      },
-      {
-          "type": "vcs",
-          "url": "https://github.com/NateWr/pkp-vite"
-      }
-  ],
-  "require": {
-      "natewr/pkp-theme-helper": "dev-main",
-      "natewr/pkp-vite": "dev-main"
-  }
+    "name": "tib/tibop-theme",
+    "description": "Custom OJS theme for journals hosted by TIB Open Publishing.",
+    "license": "GPL",
+    "require": {
+        "natewr/pkp-theme-helper": "^0.1.0",
+        "natewr/pkp-vite": "^0.1.2"
+    }
 }
