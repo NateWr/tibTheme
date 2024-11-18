@@ -1,3 +1,217 @@
 .tibop-header {
-  background: white;
+  display: none;
+}
+
+@media (--tablets-landscape) {
+
+  .tibop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 2rem;
+    background: var(--tibop-header-bg);
+    color: var(--tibop-header-text);
+    font-family: var(--tibop-font);
+  }
+
+  .tibop-header-link {
+    display: flex;
+
+    & svg {
+      width: auto;
+      height: 2rem;
+    }
+  }
+
+  .tibop-header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .tibop-header-search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0 0.75rem;
+    height: 2rem;
+    line-height: 2rem;
+    background: var(--tibop-input-bg);
+    color: var(--tibop-input-text);
+    border-radius: 9999px;
+
+    & input {
+      font-size: 0.875rem;
+      background: transparent;
+      border: none;
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    &:focus-within {
+      outline: 2px solid var(--tibop-input-text);
+    }
+  }
+
+  .tibop-locales {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .tibop-locale {
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--tibop-header-text);
+    text-decoration: none;
+    border-radius: 9999px;
+
+    & abbr {
+      text-decoration: none;
+    }
+
+    &:focus-visible {
+      color: var(--tibop-header-text);
+      outline: 2px solid;
+      outline-offset: 0.25rem;
+      text-decoration: none;
+    }
+  }
+
+  .tibop-locale-current {
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-thickness: 0.15em;
+  }
+
+  .tibop-header-account-wrapper {
+
+    & .dropdown-toggle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2rem;
+      height: 2rem;
+      padding: 0;
+      border: none;
+      border-radius: 9999px;
+      color: var(--tibop-header-text);
+
+      & svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      &:focus-visible {
+        outline: 2px solid;
+      }
+      &:hover {
+        background: none;
+
+        /**
+         * Disable hover effect
+         *
+         * Default theme shows dropdown panels on hover.
+         * Override this behavior so the user has to click
+         * to show the account menu.
+         *
+         * Makes the dropdown match common behavior for
+         * modern sites.
+         */
+        + .dropdown-menu { display: none;}
+        + .dropdown-menu.show { display: block;}
+      }
+    }
+
+    & .dropdown-menu {
+      padding: 0.75rem 0;
+      width: 14rem;
+      background: var(--tibop-header-bg);
+      color: var(--tibop-header-text);
+      border-radius: 0.5rem;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
+
+    & .dropdown-divider {
+      height: 1px;
+      background-color: var(--tibop-header-shade);
+      border: none;
+    }
+
+    .tibop-header-logged-in-as {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+
+      & strong {
+        font-weight: 900;
+      }
+
+      & a {
+        color: var(--tibop-header-text);
+        border-radius: 9999px;
+
+        &:focus-visible {
+          outline: 2px solid;
+          outline-offset: 0.5em;
+          text-decoration: none;
+        }
+      }
+    }
+
+    /**
+     * Override default nav menu styles
+     */
+    & .pkp_nav_list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+
+      & ul {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: auto;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        margin-left: 0.75rem;
+      }
+
+      & a {
+        padding: 0.25rem 1rem;
+        border: none;
+        color: var(--tibop-header-text);
+
+        &:hover {
+          background: var(--tibop-header-shade);
+          color: var(--tibop-header-text);
+        }
+
+        &:focus-visible {
+          background: transparent;
+          outline: 2px solid;
+          color: var(--tibop-header-text);
+        }
+      }
+
+      & a,
+      & ul li:first-child a,
+      & ul li:last-child a {
+        border-radius: 9999px;
+      }
+    }
+  }
 }

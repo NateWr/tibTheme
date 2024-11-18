@@ -1,0 +1,7 @@
+@media (--tablets-landscape) {
+
+  .pkp_navigation_user_wrapper,
+  .pkp_navigation_search_wrapper {
+    display: none;
+  }
+}

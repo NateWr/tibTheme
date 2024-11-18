@@ -3,3 +3,9 @@ msgstr "TIB Open Publishing Theme"
 
 msgid "plugins.themes.tibOPTheme.description"
 msgstr "Custom theme for journals and conference proceedings hosted by TIB Open Publishing."
+
+msgid "plugins.themes.tibOPTheme.account"
+msgstr "Account"
+
+msgid "plugins.themes.tibOPTheme.loggedInAs"
+msgstr "Logged in as <strong>{$username}</strong>."

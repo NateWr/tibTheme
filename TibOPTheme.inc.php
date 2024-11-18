@@ -244,8 +244,9 @@ class TibOPTheme extends ThemePlugin
 
         $variables = [];
 
-        $font = $context ? "'Hanken Grotesk'" : 'Quicksand';
-        $variables['--font'] = "{$font}, system-ui, -apple-system, BlinkMacSystemFont, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'";
+        $variables['--font'] = $context
+            ? "'Hanken Grotesk', system-ui, -apple-system, BlinkMacSystemFont, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
+            : 'var(--tibop-font)';
 
         $output = [];
         foreach ($variables as $var => $val) {
@@ -268,9 +269,10 @@ class TibOPTheme extends ThemePlugin
 
         $this->addStyle(
             'font',
-            $context
-                ? $this->getContextFontFace($themeBaseUrl)
-                : $this->getSiteFontFace($themeBaseUrl),
+            join("\n", [
+                $context ? $this->getContextFontFace($themeBaseUrl) : '',
+                $this->getSiteFontFace($themeBaseUrl),
+            ]),
             ['inline' => true]
         );
     }
