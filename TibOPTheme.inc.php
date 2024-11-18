@@ -29,6 +29,8 @@ class TibOPTheme extends ThemePlugin
             $this->addMenuArea(['primary', 'user', 'quicklinks', 'policy']);
         }
 
+        $this->addFonts($this->getPluginUrl());
+        $this->addStyle('variables', $this->getCssVariables(), ['inline' => true]);
         $this->addViteAssets(['src/main.js']);
 
         HookRegistry::register('TemplateManager::display', [$this, 'addGlobalTemplateData']);
@@ -228,5 +230,148 @@ class TibOPTheme extends ThemePlugin
         );
 
         $viteLoader->load($entryPoints);
+    }
+
+    /**
+     * Get CSS variables
+     *
+     * Returns CSS variables that are set differently based on the
+     * theme options or whether it's a context or site page.
+     */
+    protected function getCssVariables(): string
+    {
+        $context = Application::get()->getRequest()->getContext();
+
+        $variables = [];
+
+        $font = $context ? "'Hanken Grotesk'" : 'Quicksand';
+        $variables['--font'] = "{$font}, system-ui, -apple-system, BlinkMacSystemFont, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'";
+
+        $output = [];
+        foreach ($variables as $var => $val) {
+            $output[] = "{$var}: {$val}";
+        }
+
+        return 'body {' . join('', $output) . '}';
+    }
+
+    /**
+     * Load custom fonts
+     *
+     * @font-face definitions are loaded as inline stylesheet in order
+     * to make the http requests for font files as soon as possible.
+     * This reduces the delay for fonts to render on page load.
+     */
+    protected function addFonts(string $themeBaseUrl): void
+    {
+        $context = Application::get()->getRequest()->getContext();
+
+        $this->addStyle(
+            'font',
+            $context
+                ? $this->getContextFontFace($themeBaseUrl)
+                : $this->getSiteFontFace($themeBaseUrl),
+            ['inline' => true]
+        );
+    }
+
+    protected function getContextFontFace(string $themeBaseUrl): string
+    {
+        return "
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url({$themeBaseUrl}/fonts/hankengrotesk/ieVl2YZDLWuGJpnzaiwFXS9tYtpY19-7DRs5.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url({$themeBaseUrl}/fonts/hankengrotesk/ieVl2YZDLWuGJpnzaiwFXS9tYtpY1927DRs5.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url({$themeBaseUrl}/fonts/hankengrotesk/ieVl2YZDLWuGJpnzaiwFXS9tYtpY19y7DRs5.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url({$themeBaseUrl}/fonts/hankengrotesk/ieVl2YZDLWuGJpnzaiwFXS9tYtpY19K7DQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url({$themeBaseUrl}/fonts/hankengrotesk/ieVn2YZDLWuGJpnzaiwFXS9tYtpQ59CjCQ.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url({$themeBaseUrl}/fonts/hankengrotesk/ieVn2YZDLWuGJpnzaiwFXS9tYtpS59CjCQ.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url({$themeBaseUrl}/fonts/hankengrotesk/ieVn2YZDLWuGJpnzaiwFXS9tYtpT59CjCQ.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url({$themeBaseUrl}/fonts/hankengrotesk/ieVn2YZDLWuGJpnzaiwFXS9tYtpd59A.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+        ";
+    }
+
+    protected function getSiteFontFace(string $themeBaseUrl): string
+    {
+        return "
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url({$themeBaseUrl}/fonts/quicksand/6xKtdSZaM9iE8KbpRA_hJFQNcOM.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url({$themeBaseUrl}/fonts/quicksand/6xKtdSZaM9iE8KbpRA_hJVQNcOM.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url({$themeBaseUrl}/fonts/quicksand/6xKtdSZaM9iE8KbpRA_hK1QN.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+        ";
     }
 }
