@@ -47,7 +47,9 @@ body {
 .pkp_navigation_user::after,
 .pkp_search_mobile::after,
 .pkp_structure_main::before,
-.pkp_structure_main::after {
+.pkp_structure_main::after,
+.has_site_logo .pkp_head_wrapper::before,
+.has_site_logo .pkp_head_wrapper::after {
   content: none !important;
 }
 
@@ -92,6 +94,10 @@ body {
 }
 
 @media (--tablets-landscape) {
+
+  .has_site_logo .pkp_head_wrapper {
+    width: 100%;
+  }
 
   .pkp_structure_main,
   .pkp_structure_main:first-child:last-child {

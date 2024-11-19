@@ -4,4 +4,134 @@
   .pkp_navigation_search_wrapper {
     display: none;
   }
+
+  .pkp_structure_head {
+    background-color: var(--header-bg);
+  }
+
+  .pkp_head_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    min-height: 10rem;
+    padding: 0;
+  }
+
+  .has_site_logo .pkp_head_wrapper {
+    padding-top: 1rem;
+  }
+
+  .pkp_site_name {
+    display: flex;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    font-family: var(--font);
+    color: var(--header-text);
+
+    & .is_text {
+      padding: 0;
+      overflow: visible;
+
+      &:focus-visible {
+        text-decoration: none;
+        outline: 2px solid;
+        outline-offset: 0.5rem;
+      }
+    }
+
+    & .is_img {
+      display: block;
+      align-self: flex-start;
+      margin: 0;
+
+      &:focus {
+        outline: 2px solid var(--header-text);
+      }
+
+      & img {
+        max-height: 6rem;
+      }
+    }
+  }
+
+  .pkp_site_nav_menu {
+    background: transparent;
+  }
+
+  .pkp_navigation_primary {
+    display: flex;
+    align-items: center;
+
+    & a {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    > li {
+
+      > a {
+        border: none;
+        margin: 0;
+        padding: 0.75rem 1rem;
+
+        &:has(+ ul) {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          &:after {
+            content: '';
+            border-left: 0.4rem solid transparent;
+            border-right: 0.4rem solid transparent;
+            border-top: 0.4rem solid var(--header-text);
+          }
+        }
+
+        &:focus-visible + ul,
+        + ul:focus-within {
+          left: 0;
+        }
+
+        &:focus,
+        &:focus-visible {
+          background: transparent;
+          color: var(--header-text);
+          outline: 2px solid;
+          outline-offset: -0.5rem;
+        }
+      }
+
+      &:first-child a {
+        margin-inline-start: -1rem;
+      }
+    }
+
+    & ul {
+      background: var(--overlay-bg);
+      color: var(--overlay-text);
+      border-radius: var(--radius);
+      box-shadow: var(--overlay-shadow);
+      padding: 1rem 0;
+
+      & a {
+        color: var(--overlay-text);
+        padding: 0.5rem 1rem;
+        padding-inline-start: 1rem;
+        border-radius: 0;
+
+        &:hover,
+        &:focus-visible {
+          background: transparent;
+          color: var(--overlay-text);
+          border-color: var(--overlay-text);
+        }
+      }
+
+      & li:first-child a,
+      & li:last-child a {
+        border-radius: 0;
+      }
+    }
+  }
 }

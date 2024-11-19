@@ -169,7 +169,7 @@
       background: var(--tibop-header-bg);
       color: var(--tibop-header-text);
       border-radius: 0.5rem;
-      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+      box-shadow: var(--overlay-shadow);
       z-index: 9999;
     }
 

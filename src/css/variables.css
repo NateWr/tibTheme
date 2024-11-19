@@ -1,5 +1,6 @@
 :root {
 
+  --blue-default: '#1E6292';
   --light-grey: #EDEDED;
   --dark-grey: #4A4A4A;
 
@@ -10,6 +11,16 @@
   --tibop-input-text: var(--dark-grey);
 
   --tibop-font: Quicksand, system-ui, -apple-system, BlinkMacSystemFont, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --header-bg: var(--blue-default);
+  --header-text: 'white';
+  --page-bg: #fff;
+  --page-text: #000;
+  --overlay-bg: var(--page-bg);
+  --overlay-text: var(--page-text);
+  --overlay-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+
+  --radius: 0.25rem;
 }
 
 @custom-media --tablets (min-width: 768px);

@@ -241,6 +241,7 @@ class TibOPTheme extends ThemePlugin
     protected function getCssVariables(): string
     {
         $context = Application::get()->getRequest()->getContext();
+        $isBaseColorDark = $this->isColourDark($this->getOption('baseColour'));
 
         $variables = [];
 
@@ -248,12 +249,16 @@ class TibOPTheme extends ThemePlugin
             ? "'Hanken Grotesk', system-ui, -apple-system, BlinkMacSystemFont, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
             : 'var(--tibop-font)';
 
+
+        $variables['--header-bg'] = $this->getOption('baseColour');
+        $variables['--header-text'] = $isBaseColorDark ? "#fff" : 'rgba(0, 0, 0, 0.85)';
+
         $output = [];
         foreach ($variables as $var => $val) {
-            $output[] = "{$var}: {$val}";
+            $output[] = "{$var}: {$val};";
         }
 
-        return 'body {' . join('', $output) . '}';
+        return 'body {' . join("\n", $output) . '}';
     }
 
     /**
