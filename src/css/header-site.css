@@ -1,0 +1,64 @@
+/**
+ * Styles for the default theme header at
+ * the site level.
+ *
+ * This hides everything but the main
+ * navigation menu.
+ */
+@media (--tablets-landscape) {
+
+  /**
+   * Only modify header at site level
+   *
+   * @see templates/frontend/tibop-header.tpl
+   */
+  .pkp_structure_head:has(.tibop-header-site) {
+    background: transparent;
+  }
+
+  .tibop-header-site + .pkp_head_wrapper {
+    background: transparent;
+    min-height: auto;
+
+    .pkp_site_name_wrapper {
+      display: none;
+    }
+
+    .pkp_navigation_primary_wrapper,
+    .pkp_navigation_primary {
+      display: flex;
+      justify-content: center;
+    }
+
+    .pkp_navigation_primary {
+
+      & a {
+        border-radius: 9999px;
+      }
+
+      > li:hover ul {
+        left: 0;
+      }
+
+      & ul {
+        padding-inline-start: 0.5rem;
+        padding-inline-end: 0.5rem;
+
+        & a {
+          margin-left: 0;
+          margin-inline-start: 0;
+
+          &:hover {
+            border-color: transparent;
+            background: var(--tibop-header-shade);
+          }
+
+          &:focus-visible {
+            border-color: transparent;
+            outline: 2px solid;
+          }
+        }
+      }
+    }
+  }
+}

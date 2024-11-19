@@ -250,8 +250,13 @@ class TibOPTheme extends ThemePlugin
             : 'var(--tibop-font)';
 
 
-        $variables['--header-bg'] = $this->getOption('baseColour');
-        $variables['--header-text'] = $isBaseColorDark ? "#fff" : 'rgba(0, 0, 0, 0.85)';
+        if ($context) {
+            $variables['--header-bg'] = $this->getOption('baseColour');
+            $variables['--header-text'] = $isBaseColorDark ? "#fff" : 'rgba(0, 0, 0, 0.85)';
+        } else {
+            $variables['--header-bg'] = 'transparent';
+            $variables['--header-text'] = 'var(--tibop-header-text)';
+        }
 
         $output = [];
         foreach ($variables as $var => $val) {

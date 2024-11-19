@@ -1,3 +1,6 @@
+/**
+ * Styles for the default theme header
+ */
 @media (--tablets-landscape) {
 
   .pkp_navigation_user_wrapper,
@@ -57,6 +60,11 @@
 
   .pkp_site_nav_menu {
     background: transparent;
+    /**
+     * Fix: nav menu covers user account
+     * dropdown in TIB-OP header.
+     */
+    z-index: 1
   }
 
   .pkp_navigation_primary {
@@ -74,6 +82,7 @@
         border: none;
         margin: 0;
         padding: 0.75rem 1rem;
+        color: var(--header-text);
 
         &:has(+ ul) {
           display: flex;
@@ -86,6 +95,10 @@
             border-right: 0.4rem solid transparent;
             border-top: 0.4rem solid var(--header-text);
           }
+        }
+
+        &:hover {
+          color: var(--header-text);
         }
 
         &:focus-visible + ul,

@@ -8,7 +8,20 @@
  *}
 {capture assign="userMenu"}{strip}{load_menu name="user" id="nav-desktop-user" ulClass="tibop-header-account-menu"}{/strip}{/capture}
 
-<div class="tibop-header">
+<div
+  class="
+    tibop-header
+    {**
+     * Add flag if this is the site level
+     *
+     * This flag is a hack that allows us to apply CSS
+     * to the default theme header at the site level.
+     *}
+    {if !$currentContext}
+      tibop-header-site
+    {/if}
+  "
+>
   <a
     class="tibop-header-link"
     href="{url context="index"}"
