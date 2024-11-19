@@ -102,24 +102,29 @@
     }
   }
 
-.pkp_navigation_user > li > ul a:has(.task_count) {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  .pkp_navigation_user {
+    width: 100%;
 
-  & .task_count {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    top: auto;
-    width: 1.5rem;
-    height: 1.5rem;
-    color: var(--overlay-bg);
-    background: var(--overlay-text);
-    font-size: 0.75rem;
   }
-}
+
+  .pkp_navigation_user > li > ul a:has(.task_count) {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    & .task_count {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      top: auto;
+      width: 1.5rem;
+      height: 1.5rem;
+      color: var(--overlay-bg);
+      background: var(--overlay-text);
+      font-size: 0.75rem;
+    }
+  }
 
   .pkp_navigation_user > li > a,
   .pkp_navigation_primary > li > a,
