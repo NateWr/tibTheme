@@ -1,6 +1,138 @@
 /**
  * Styles for the default theme header
  */
+
+@media (--below-tablets-landscape) {
+
+  .pkp_structure_head {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    background-image: none;
+    background-color: var(--header-bg);
+  }
+
+  .has_site_logo .pkp_head_wrapper {
+    padding: 0;
+    width: 100%;
+  }
+
+  .pkp_site_name_wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    height: 4rem;
+  }
+
+  .pkp_site_nav_toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 4rem;
+    height: 4rem;
+    flex-shrink: 0;
+    padding: 0;
+    box-shadow: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--header-text);
+      outline-offset: -0.5rem;
+    }
+  }
+
+  .pkp_site_name {
+    position: relative;
+    top: auto;
+    left: auto;
+    padding-inline-start: 1rem;
+    line-height: 1.2;
+    max-height: 3.75rem;
+    overflow: hidden;
+
+    & .is_text {
+      padding: 0;
+      font-family: var(--font);
+      font-size: 1rem;
+      line-height: 1.2;
+      white-space: normal;
+    }
+
+    & .is_img {
+      display: block;
+      margin: 0;
+
+      & img {
+        max-height: 3rem;
+      }
+    }
+  }
+
+  .pkp_site_nav_menu {
+    padding: 0.75rem 0.75rem 0;
+    background: var(--overlay-bg);
+    box-shadow: var(--overlay-shadow);
+    max-height: calc(100vh - 4rem);
+    overflow: auto;
+  }
+
+  .pkp_navigation_user,
+  .pkp_navigation_primary,
+  .pkp_navigation_search_wrapper {
+
+    & a {
+      color: var(--overlay-text);
+
+      &:hover {
+        color: var(--overlay-text);
+        text-decoration: none;
+      }
+
+      &:focus-visible {
+        color: var(--overlay-text);
+        outline: 2px solid;
+        text-decoration: none;
+      }
+    }
+  }
+
+.pkp_navigation_user > li > ul a:has(.task_count) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  & .task_count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    top: auto;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--overlay-bg);
+    background: var(--overlay-text);
+    font-size: 0.75rem;
+  }
+}
+
+  .pkp_navigation_user > li > a,
+  .pkp_navigation_primary > li > a,
+  .pkp_navigation_search_wrapper {
+    font-weight: 600;
+  }
+
+  .pkp_navigation_search_wrapper,
+  .pkp_navigation_user.pkp_navigation_user {
+    border-top: none;
+  }
+}
+
 @media (--tablets-landscape) {
 
   .pkp_navigation_user_wrapper,

@@ -1,3 +1,9 @@
+/**
+ * Styles for the TIB Open Publishing
+ * bar at the top of every page.
+ *
+ * Hidden on small devices.
+ */
 .tibop-header {
   display: none;
 }
@@ -86,42 +92,6 @@
       outline: 2px solid;
       outline-offset: -2px;
     }
-  }
-
-  .tibop-locales {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-
-  .tibop-locale {
-    width: 1.5rem;
-    height: 1.5rem;
-    line-height: 1.5rem;
-    text-align: center;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--tibop-header-text);
-    text-decoration: none;
-    border-radius: 9999px;
-
-    & abbr {
-      text-decoration: none;
-    }
-
-    &:focus-visible {
-      color: var(--tibop-header-text);
-      outline: 2px solid;
-      outline-offset: 0.25rem;
-      text-decoration: none;
-    }
-  }
-
-  .tibop-locale-current {
-    font-weight: 800;
-    text-decoration: underline;
-    text-decoration-thickness: 0.15em;
   }
 
   .tibop-header-account-wrapper {

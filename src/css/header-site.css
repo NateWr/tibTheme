@@ -2,9 +2,42 @@
  * Styles for the default theme header at
  * the site level.
  *
- * This hides everything but the main
- * navigation menu.
+ * On desktop, everything but the main navigation menu
+ * is hidden.
  */
+@media (--below-tablets-landscape) {
+
+  .tibop-header-site + .pkp_head_wrapper {
+    background: #fff;
+    color: var(--tibop-header-text);
+    box-shadow: 0 0 1rem 1rem #fff;
+
+    & .pkp_site_name {
+
+      & .is_img img {
+        max-height: 2.25rem;
+      }
+    }
+
+    & .pkp_site_nav_menu {
+      background: #fff;
+      box-shadow: 0 1rem 1rem 0 #fff;
+    }
+
+    & .pkp_nav_list {
+
+      & a {
+        font-weight: 500;
+      }
+
+      > li > a {
+        font-weight: 900;
+      }
+    }
+  }
+
+}
+
 @media (--tablets-landscape) {
 
   /**

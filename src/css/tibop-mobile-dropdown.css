@@ -1,0 +1,52 @@
+/**
+ * Styles for the TIB Open Publishing logo
+ * and language selector in the mobile
+ * menu dropdown.
+ */
+.tibop-mobile-dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--tibop-header-shade);
+  margin: 1rem -0.75rem 0;
+  height: 4rem;
+  padding: 0 1rem;
+}
+
+.tibop-mobile-dropdown-link {
+
+  & svg {
+    width: auto;
+    height: 2.25rem;
+  }
+
+  &:focus {
+    outline: 2px solid var(--tibop-header-text);
+    outline-offset: 0.25rem;
+  }
+}
+
+/**
+ * Override clashing styles from
+ * default theme
+ */
+.tibop-mobile-dropdown {
+
+  & .tibop-locale {
+    display: block;
+    padding: 0;
+    color: var(--tibop-header-text);
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: none;
+      color: var(--tibop-header-text);
+    }
+  }
+
+  & .tibop-locale-current {
+    text-decoration: underline;
+    text-decoration-thickness: 0.15em;
+  }
+}
