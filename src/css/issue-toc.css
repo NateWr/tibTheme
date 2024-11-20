@@ -105,9 +105,7 @@ body {
   .obj_issue_toc:has(.heading .cover) {
 
     & .heading {
-      display: grid;
-      grid-template-columns: var(--issue-column-left-width) 1fr;
-      gap: var(--issue-gap);
+      position: relative;
 
       &:before,
       &:after {
@@ -115,15 +113,19 @@ body {
       }
 
       & .cover {
-        width: 100%;
+        position: absolute;
+        left: 0;
+        width: var(--issue-column-left-width);
 
         & img {
           max-width: none;
         }
       }
 
+      & .description,
       & .published {
-        grid-column: 2/3;
+        margin-left: var(--issue-column-left-width);
+        padding-left: var(--issue-gap);
       }
     }
 
