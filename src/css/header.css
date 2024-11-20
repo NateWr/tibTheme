@@ -166,11 +166,11 @@
     display: flex;
     font-size: 1.5rem;
     line-height: 1.25;
-    font-family: var(--font);
     color: var(--header-text);
 
     & .is_text {
       padding: 0;
+      font-family: var(--font);
       overflow: visible;
 
       &:focus-visible {
