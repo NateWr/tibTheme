@@ -1,0 +1,25 @@
+/**
+ * Button styles
+ *
+ * These classes can be applied using Tailwind's
+ * @apply directive. Example:
+ *
+ * .pkp_example_link {
+ *   @apply tibop-button;
+ * }
+ */
+.tibop-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 1em;
+  border: var(--button-border);
+  border-radius: var(--button-radius);
+  color: var(--button-text);
+  background: var(--button-bg);
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  text-align: center;
+}

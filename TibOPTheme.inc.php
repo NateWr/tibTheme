@@ -262,6 +262,13 @@ class TibOPTheme extends ThemePlugin
         if ($context) {
             $variables['--header-bg'] = $this->getOption('baseColour');
             $variables['--header-text'] = $isBaseColorDark ? "#fff" : 'rgba(0, 0, 0, 0.85)';
+            if ($isBaseColorDark) {
+                $variables['--button-bg'] = $this->getOption('baseColour');
+                $variables['--button-text'] = '#fff';
+            } else {
+                $variables['--button-bg'] = 'rgba(0, 0, 0, 0.85)';
+                $variables['--button-text'] = $this->getOption('baseColour');
+            }
         } else {
             $variables['--header-bg'] = 'transparent';
             $variables['--header-text'] = 'var(--tibop-header-text)';

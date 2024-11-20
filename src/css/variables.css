@@ -1,6 +1,5 @@
 :root {
-
-  --blue-default: '#1E6292';
+  --blue-default: #1E6292;
   --light-grey: #EDEDED;
   --dark-grey: #4A4A4A;
 
@@ -24,6 +23,11 @@
   --footer-btm-bg: #fff;
 
   --radius: 0.25rem;
+
+  --button-bg: var(--blue-default);
+  --button-text: #fff;
+  --button-radius: var(--radius);
+  --button-border: none;
 }
 
 @custom-media --tablets (min-width: 768px);
