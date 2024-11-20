@@ -1,9 +1,89 @@
 /**
  * Styles for the journal homepage
  */
+.pkp_page_index .homepage_about {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 1rem 0 4rem;
+  padding: 0;
+  font-size: 1.25rem;
+
+  > * {
+    margin: 0;
+  }
+
+  > p {
+    line-height: 1.5;
+  }
+
+  & h2 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  & .pkp_nav_list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+
+    & a {
+      @apply tibop-button;
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (--tablets) {
+
+  .pkp_page_index .homepage_about {
+    font-size: 1.5rem;
+
+    & .pkp_nav_list {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      > li {
+        flex: 0 0 16rem;
+      }
+    }
+  }
+}
+
 @media (--tablets-landscape) {
 
   .homepage_image.homepage_image {
     margin-top: 0;
+  }
+
+  .pkp_page_index .homepage_about {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pkp_page_index .homepage_about:has(.pkp_nav_list) {
+    max-width: 896px;
+    display: grid;
+    grid-template-columns: 1fr 16rem;
+    align-items: center;
+
+    > * {
+      grid-column: 1 / 2;
+    }
+
+    > .pkp_nav_list {
+      grid-column: 2 / 3;
+    }
   }
 }
