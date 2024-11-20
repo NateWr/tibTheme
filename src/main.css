@@ -1,5 +1,6 @@
 @import "css/variables.css";
 @import "css/utility-button.css";
+@import "css/utility-input.css";
 @import "css/reset-layout.css";
 @import "css/article-summary.css";
 @import "css/breadcrumbs.css";
@@ -11,5 +12,6 @@
 @import "css/tibop-header.css";
 @import "css/tibop-locales.css";
 @import "css/tibop-mobile-dropdown.css";
+@import "css/page-article.css";
 @import "css/page-index-journal.css";
 @import "css/page-issue.css";

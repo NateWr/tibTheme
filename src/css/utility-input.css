@@ -1,0 +1,18 @@
+/**
+ * Form input styles
+ */
+.input {
+  padding: 0.25rem 1rem;
+  background: var(--page-bg);
+  color: var(--page-text);
+  border: 1px solid var(--page-text);
+  border-radius: var(--radius);
+  font-family: var(--font);
+  font-weight: 400;
+
+  &:focus,
+  &:focus-visible {
+    background: var(--page-bg);
+    outline: 2px solid;
+  }
+}

@@ -33,6 +33,22 @@
   }
 }
 
+.tibop-button-wire {
+  @apply tibop-button;
+  background: var(--page-bg);
+  border: 1px solid var(--page-text);
+  color: var(--page-text);
+
+  &:hover {
+    color: var(--page-text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--page-text);
+    outline-offset: 0.25rem;
+  }
+}
+
 .tibop-button-grey {
   @apply tibop-button;
   background: var(--button-grey-bg);

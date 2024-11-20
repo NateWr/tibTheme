@@ -1,0 +1,374 @@
+/**
+ * Styles for the article landing page
+ */
+.page_article {
+
+  & .row {
+    margin: 0;
+  }
+
+  & .row:before,
+  & .row:after {
+    content: none;
+  }
+
+  & .page_title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+
+  & .subtitle {
+    margin-top: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-wrap: balance;
+  }
+
+  & .main_entry {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    & .item {
+      padding: 0;
+
+      & .label {
+        margin-bottom: 1rem;
+        font-family: var(--font);
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.25;
+
+        + p {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  & .authors {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    & li {
+      margin: 0;
+    }
+
+    & .name {
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+
+    & .affiliation,
+    & .orcid {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      line-height: 1.25;
+
+      & a {
+        line-height: 1.25;
+        color: var(--page-text);
+
+        &:focus-visible {
+          outline: 2px solid;
+          outline-offset: 0.25rem;
+        }
+      }
+    }
+
+    & .affiliation {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--page-text);
+
+      & a {
+        line-height: 0.5;
+      }
+    }
+
+    & .orcid {
+      margin-top: 0.25rem;
+      font-size: 0.875rem;
+      font-weight: 400;
+      text-decoration: none;
+    }
+  }
+
+  & .doi,
+  & .keywords {
+    margin-top: -2rem;
+  }
+
+  & .doi {
+
+    & a {
+      color: var(--page-text);
+    }
+  }
+
+  & .references {
+
+    & .value p {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+  }
+
+  & .entry_details {
+    margin: 4rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: none;
+
+    & .item {
+      padding: 1rem;
+      background: var(--page-shade);
+      border: none;
+
+      & .label {
+        margin-bottom: 0.25rem;
+        font-family: var(--font);
+        font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 1.25;
+        color: var(--page-text);
+        text-transform: uppercase;
+      }
+
+      & a {
+        color: var(--page-text);
+
+        &:focus-visible {
+          outline: 2px solid;
+          outline-offset: 0.125rem;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  & .cover_image {
+    display: none;
+  }
+
+  & .supplementary_galleys_links,
+  & .galleys_links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  & .obj_galley_link.obj_galley_link.obj_galley_link {
+    @apply tibop-button;
+  }
+
+  & .obj_galley_link_supplementary.obj_galley_link_supplementary.obj_galley_link_supplementary {
+    @apply tibop-button-wire;
+
+    &:after {
+      content: none;
+    }
+  }
+
+  /**
+   * Make primary and supplementary galleys
+   * look like they are in one block
+   */
+  .galleys + .galleys {
+    padding-top: 0;
+    margin-top: -1.5rem;
+
+    & .supplementary_galleys_links {
+      margin-top: 0;
+    }
+  }
+
+  & .published {
+
+    & .value {
+      font-size: 1.125rem;
+      line-height: 1.25;
+    }
+
+    & .versions .value {
+      font-size: 1rem;
+    }
+  }
+
+  & .citation {
+
+    & .value {
+      font-size: 0.875rem;
+      line-height: 1.25;
+    }
+
+    & .citation_formats_button {
+      @apply input;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    & .citation_formats_list {
+      background: var(--page-bg);
+      font-size: 1rem;
+      border-radius: var(--radius);
+
+      & .citation_formats_styles {
+        padding: 0.5rem;
+      }
+
+      & a {
+        display: inline-block;
+        padding: 0.5rem;
+        border: none;
+        border-radius: var(--radius);
+        color: var(--page-text);
+
+        &:hover {
+          background: var(--page-shade);
+        }
+
+        &:focus-visible {
+          outline: 2px solid;
+          background: transparent;
+        }
+      }
+
+      & .label {
+        padding: 1rem;
+        background: var(--page-shade);
+      }
+    }
+  }
+
+  & .issue {
+
+    & .title {
+      display: block;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (--tablets) {
+
+  .page_article {
+
+    & .row {
+      border: none;
+    }
+
+    .main_entry,
+    .entry_details {
+      float: none;
+      width: 100%;
+      border: none;
+    }
+
+    .page_title {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+    }
+
+    & .doi,
+    & .doi .label.label.label,
+    & .keywords,
+    & .keywords .label.label.label {
+      font-size: 1.125rem;
+    }
+
+    & .main_entry {
+
+      & .item {
+
+        & .label {
+          font-size: 2rem;
+        }
+
+        & .value {
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    & .abstract {
+
+      & p {
+        font-size: 1.25rem;
+        line-height: 2;
+      }
+    }
+
+    & .references {
+
+      & .value p {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (--tablets-landscape) {
+
+  .page_article {
+
+    & .row {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 16rem;
+      gap: 2rem;
+    }
+
+    & .main_entry,
+    & .entry_details {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (--laptops-sm) {
+
+  .page_article {
+
+    & .row {
+      gap: 4rem;
+    }
+
+    & .page_title {
+      max-width: 56rem;
+    }
+
+    & .subtitle {
+      max-width: 64rem;
+    }
+  }
+}
+
+@media (--laptops) {
+
+  .page_article {
+
+    & .row {
+      gap: 8rem;
+    }
+
+    & .page_title {
+      font-size: 3rem;
+      line-height: 1.15;
+    }
+  }
+}
