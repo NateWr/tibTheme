@@ -155,7 +155,6 @@
     justify-content: flex-end;
     gap: 0.25rem;
     min-height: 10rem;
-    padding: 0;
   }
 
   .has_site_logo .pkp_head_wrapper {

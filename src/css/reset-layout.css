@@ -82,7 +82,7 @@ body {
     --page-inline-padding: 2rem;
   }
 
-  .pkp_site_name_wrapper,
+  .pkp_head_wrapper,
   .pkp_structure_content {
     width: var(--page-width);
   }
@@ -95,19 +95,14 @@ body {
 
 @media (--tablets-landscape) {
 
-  .has_site_logo .pkp_head_wrapper {
-    width: 100%;
+  body {
+    --page-inline-padding: 3rem;
+    --page-width: 992px;
   }
 
-  .pkp_structure_main,
-  .pkp_structure_main:first-child:last-child {
-    margin-top: 0;
-    margin-bottom: 0;
-    width: var(--page-width);
-  }
-
-  .pkp_site_name_wrapper,
-  .pkp_navigation_primary_wrapper {
+  .pkp_head_wrapper,
+  .has_site_logo .pkp_head_wrapper,
+  .pkp_structure_main {
     width: var(--page-width);
     margin-left: auto;
     margin-right: auto;
@@ -115,7 +110,13 @@ body {
     padding-right: var(--page-inline-padding);
   }
 
+  .pkp_site_name_wrapper,
+  .pkp_navigation_primary_wrapper {
+    width: 100%;
+  }
+
   .page_index_journal {
+    padding: 2rem 0;
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
