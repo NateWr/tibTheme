@@ -1,44 +1,73 @@
 /**
  * Styles for the journal homepage
  */
-.pkp_page_index .homepage_about {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  margin: 1rem 0 4rem;
-  padding: 0;
-  font-size: 1.25rem;
+.pkp_page_index {
 
-  > * {
-    margin: 0;
-  }
-
-  > p {
-    line-height: 1.5;
-  }
-
-  & h2 {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-
-  & .pkp_nav_list {
+  & .homepage_about {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    list-style: none;
+    gap: 3rem;
+    margin: 1rem 0 4rem;
     padding: 0;
+    font-size: 1.25rem;
 
-    & a {
+    > * {
+      margin: 0;
+    }
+
+    > p {
+      line-height: 1.5;
+    }
+
+    & h2 {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    & .pkp_nav_list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+
+      & a {
+        @apply tibop-button;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .current_issue_title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  & .current_issue {
+
+    & h2 {
+      font-family: var(--font);
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+
+    > .read_more {
       @apply tibop-button;
+      margin-top: 4rem;
       font-size: 1rem;
+
+      &:after {
+        display: none;
+      }
     }
   }
 }
@@ -84,6 +113,86 @@
 
     > .pkp_nav_list {
       grid-column: 2 / 3;
+    }
+  }
+
+  .pkp_page_index {
+
+    .current_issue_title {
+      font-size: 2rem;
+      max-width: 75%;
+      text-wrap: balance;
+    }
+
+    .current_issue {
+      & h2 {
+        font-size: 1rem;
+      }
+
+      > .read_more {
+        max-width: 24rem;
+      }
+
+      /**
+       * Two-column issue layout when a
+       * cover exists
+       *
+       * These variables are used in issue-toc.css
+       */
+      &:has(.heading .cover) {
+        --column-left-width: 12rem;
+        --column-gap: 2rem;
+
+        > .read_more {
+          margin-left: calc(var(--column-left-width) + var(--column-gap));
+        }
+      }
+
+      /**
+       * One-column issue layout when a
+       * cover doesn't exist
+       */
+      &:not(:has(.heading .cover)) {
+        max-width: 1024px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+@media (--laptops-sm) {
+
+  .pkp_page_index {
+
+    & .current_issue {
+
+      &:has(.heading .cover) {
+        --column-left-width: 16rem;
+      }
+    }
+  }
+}
+
+@media (--laptops) {
+
+  .pkp_page_index {
+
+    .current_issue_title {
+      font-size: 3rem;
+      line-height: 1.1;
+    }
+
+    .current_issue {
+      margin-top: 8rem;
+
+      & h2 {
+        font-size: 1.25rem;
+      }
+
+      &:has(.heading .cover) {
+        --column-left-width: 24rem;
+      }
     }
   }
 }

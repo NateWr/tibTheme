@@ -15,6 +15,7 @@
   --header-text: 'white';
   --page-bg: #fff;
   --page-text: #000;
+  --page-shade: var(--light-grey);
   --overlay-bg: var(--page-bg);
   --overlay-text: var(--page-text);
   --overlay-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.25);
@@ -28,6 +29,8 @@
   --button-text: #fff;
   --button-radius: var(--radius);
   --button-border: none;
+  --button-grey-bg: var(--light-grey);
+  --button-grey-text: var(--page-text);
 }
 
 @custom-media --tablets (min-width: 768px);

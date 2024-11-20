@@ -76,6 +76,17 @@ body {
   margin-right: calc(-1 * var(--page-inline-padding));
 }
 
+.pkp_structure_main {
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    font-family: var(--font);
+  }
+}
+
 @media (--tablets) {
 
   body {

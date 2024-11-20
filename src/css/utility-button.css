@@ -22,4 +22,27 @@
   line-height: 1.25;
   text-decoration: none;
   text-align: center;
+
+  &:hover {
+    color: var(--button-text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--button-bg);
+    outline-offset: 0.25rem;
+  }
+}
+
+.tibop-button-grey {
+  @apply tibop-button;
+  background: var(--button-grey-bg);
+  color: var(--button-grey-text);
+
+  &:hover {
+    color: var(--button-grey-text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid;
+  }
 }
