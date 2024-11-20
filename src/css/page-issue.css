@@ -1,0 +1,29 @@
+.page_issue {
+
+  & h1 {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+}
+
+@media (--tablets) {
+
+  .page_issue {
+
+    & h1 {
+      font-size: 2rem;
+      max-width: 75%;
+    }
+
+    /**
+     * One-column issue layout when a
+     * cover doesn't exist
+     */
+    &:not(:has(.heading .cover)) {
+      max-width: 1024px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

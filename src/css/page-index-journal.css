@@ -136,15 +136,11 @@
       /**
        * Two-column issue layout when a
        * cover exists
-       *
-       * These variables are used in issue-toc.css
        */
       &:has(.heading .cover) {
-        --column-left-width: 12rem;
-        --column-gap: 2rem;
 
         > .read_more {
-          margin-left: calc(var(--column-left-width) + var(--column-gap));
+          margin-left: calc(var(--issue-column-left-width) + var(--issue-gap));
         }
       }
 
@@ -156,19 +152,6 @@
         max-width: 1024px;
         margin-left: auto;
         margin-right: auto;
-      }
-    }
-  }
-}
-
-@media (--laptops-sm) {
-
-  .pkp_page_index {
-
-    & .current_issue {
-
-      &:has(.heading .cover) {
-        --column-left-width: 16rem;
       }
     }
   }
@@ -188,10 +171,6 @@
 
       & h2 {
         font-size: 1.25rem;
-      }
-
-      &:has(.heading .cover) {
-        --column-left-width: 24rem;
       }
     }
   }
