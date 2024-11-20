@@ -19,6 +19,9 @@
   --overlay-bg: var(--page-bg);
   --overlay-text: var(--page-text);
   --overlay-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.25);
+  --footer-bg: var(--light-grey);
+  --footer-text: #000;
+  --footer-btm-bg: #fff;
 
   --radius: 0.25rem;
 }

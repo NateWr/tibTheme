@@ -101,9 +101,18 @@ class TibOPTheme extends ThemePlugin
         $templateMgr = $args[0];
         $template = $args[1];
         $output =& $args[2];
+        $context = Application::get()->getRequest()->getContext();
 
         if (substr($template, 0, 8) !== 'frontend') {
             return false;
+        }
+
+        if ($context) {
+            /** @var PartnerLogosPlugin */
+            $partnerLogosPlugin = PluginRegistry::getPlugin('generic', 'partnerlogosplugin');
+            if ($partnerLogosPlugin) {
+                $templateMgr->assign('partnerLogos', $partnerLogosPlugin->getHtml($context));
+            }
         }
 
         if ($template === 'frontend/pages/indexJournal.tpl') {

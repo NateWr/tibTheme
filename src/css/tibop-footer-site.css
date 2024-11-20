@@ -1,0 +1,41 @@
+/**
+ * Styles that adapt the footer to the
+ * site level.
+ */
+.tibop-footer-btm-site {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: var(--footer-bg);
+
+  & .tibop-footer-service {
+    gap: 1rem;
+  }
+}
+
+.tibop-footer-ojs {
+  display: flex;
+  justify-content: flex-end;
+
+  & img {
+    width: auto;
+    height: 5rem;
+  }
+}
+
+@media (--tablets) {
+
+  .tibop-footer-btm-site {
+
+    & .tibop-footer-service {
+      gap: 2rem;
+    }
+  }
+
+  .tibop-footer-ojs {
+
+    & img {
+      height: 3rem;
+    }
+  }
+}

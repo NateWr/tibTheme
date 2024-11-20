@@ -8,44 +8,91 @@
   </div><!-- pkp_structure_main -->
 </div><!-- pkp_structure_content -->
 
-<div class="tibop-footer">
+<footer class="tibop-footer-wrapper">
   {if $currentContext}
-    <div class="tibop-footer-title">
-      {$currentContext->getLocalizedName()|escape}
-    </div>
-    <div class="tibop-footer-columns">
-      <div class="tibop-footer-column">
-        {if $pageFooter}
-          {$pageFooter|strip_unsafe_html}
-        {else}
-          {$currentContext->getLocalizedData('description')|strip_unsafe_html}
-        {/if}
-        <div class="tibop-footer-issn">
-          eISSN: ...
+    <div class="tibop-footer">
+      <div class="tibop-footer-title">
+        {$currentContext->getLocalizedName()|escape}
+      </div>
+      <div class="tibop-footer-columns">
+        <div class="tibop-footer-column tibop-footer-column-about">
+          <div class="tibop-footer-desc">
+            {if $pageFooter}
+              {$pageFooter|strip_unsafe_html}
+            {else}
+              {$currentContext->getLocalizedData('description')|strip_unsafe_html}
+            {/if}
+          </div>
+          {if $currentContext->getData('onlineIssn') || $currentContext->getData('printIssn')}
+            <table class="tibop-footer-metadata">
+              <tbody>
+                {if $currentContext->getData('printIssn')}
+                  <tr>
+                    <th>ISSN</th>
+                    <td>{$currentContext->getData('printIssn')}</td>
+                  </tr>
+                {/if}
+                {if $currentContext->getData('onlineIssn')}
+                  <tr>
+                    <th>eISSN</th>
+                    <td>{$currentContext->getData('onlineIssn')}</td>
+                  </tr>
+                {/if}
+              </tbody>
+            </table>
+          {/if}
+        </div>
+        <div class="tibop-footer-column">
+          {load_menu name="primary"}
+        </div>
+        <div class="tibop-footer-column">
+          {load_menu name="user"}
         </div>
       </div>
-      <div class="tibop-footer-column">
-        {load_menu name="primary"}
-      </div>
-      <div class="tibop-footer-column">
-        {load_menu name="user"}
-      </div>
-    </div>
 
-    <!-- sidebar -->
-    {capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
-    {if $sidebarCode}
-      <div class="tibop-footer-columns tibop-sidebar" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
-        {$sidebarCode}
-      </div>
-    {/if}
+      <!-- sidebar -->
+      {capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
+      {if $sidebarCode}
+        <div class="tibop-footer-columns tibop-sidebar" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
+          {$sidebarCode}
+        </div>
+      {/if}
+    </div>
   {/if}
 
   {* TIB-OP, Policy and Partners *}
-  <div class="tibop-footer-btm">
-    {$tibopSitePolicyMenu}
+  <div class="
+    tibop-footer-btm
+    {if !$currentContext}
+      tibop-footer-btm-site
+    {/if}
+  ">
+    <div class="tibop-footer-service">
+      <a
+        class="tibop-footer-service-link"
+        href="{url context="index"}"
+      >
+        {include file="frontend/tibop-logo.svg"}
+      </a>
+      {$tibopSitePolicyMenu}
+    </div>
+    {if $currentContext}
+      <div class="tibop-footer-partners">
+        {$partnerLogos}
+      </div>
+    {else}
+      <a
+        class="tibop-footer-ojs"
+        href="{url page="about" op="aboutThisPublishingSystem"}"
+      >
+        <img
+          alt="{translate key="about.aboutThisPublishingSystem"}"
+          src="{$baseUrl}/{$brandImage}"
+        >
+      </a>
+    {/if}
   </div>
-</div>
+</footer>
 
 <!-- end of page -->
 {load_script context="frontend"}
