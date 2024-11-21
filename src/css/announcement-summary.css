@@ -1,0 +1,57 @@
+/**
+ * Styles for announcement summary
+ *
+ * Includes styles for a list of announcement summaries,
+ * which are displayed as .cmp_announcements in the
+ * default theme.
+ */
+.cmp_announcements.cmp_announcements {
+  border: none;
+
+  & li {
+    border: none;
+  }
+}
+
+.obj_announcement_summary {
+
+  & h2,
+  & h3,
+  & h4 {
+    font-size: 1.25rem;
+
+    & a {
+      display: block;
+      color: var(--color-text);
+
+      &:focus-visible {
+        outline: 2px solid;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  & .summary {
+    font-size: 1rem;
+  }
+
+  & .date,
+  & .date:before {
+    color: var(--page-text);
+  }
+
+  & .read_more {
+    font-size: 1rem;
+    color: var(--page-text);
+
+    &:hover {
+      color: var(--page-text);
+    }
+
+    &:focus-visible {
+      color: var(--page-text);
+      outline: 2px solid;
+      outline-offset: 2px;
+    }
+  }
+}

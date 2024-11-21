@@ -38,8 +38,22 @@
       list-style: none;
       padding: 0;
 
+
       & a {
         @apply tibop-button;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  & .cmp_announcements {
+    max-width: 1024px;
+    margin: 6rem auto;
+
+    & .more {
+
+      & h4,
+      & .date {
         font-size: 1rem;
       }
     }
@@ -74,16 +88,28 @@
 
 @media (--tablets) {
 
-  .pkp_page_index .homepage_about {
-    font-size: 1.5rem;
+  .pkp_page_index {
 
-    & .pkp_nav_list {
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
+    & .homepage_about {
+      font-size: 1.5rem;
 
-      > li {
-        flex: 0 0 16rem;
+      & .pkp_nav_list {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        > li {
+          flex: 0 0 16rem;
+        }
+      }
+    }
+
+    .cmp_announcements {
+      background: var(--page-shade);
+
+      & .obj_announcement_summary:before,
+      & .more:before {
+        content: none;
       }
     }
   }

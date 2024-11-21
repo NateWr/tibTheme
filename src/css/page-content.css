@@ -57,38 +57,11 @@
   }
 }
 
-.page_announcement,
-.page_announcements {
+.page_announcement {
 
   & .date,
   & .date:before {
     color: var(--page-text);
-  }
-}
-
-.page_announcements {
-
-  & .cmp_announcements {
-
-    & li {
-      border: none;
-    }
-  }
-
-  & .obj_announcement_summary {
-
-    & h2 {
-      font-size: 1.25rem;
-    }
-
-    & .summary {
-      font-size: 1rem;
-    }
-
-    & .read_more {
-      font-size: 1rem;
-      color: var(--page-text);
-    }
   }
 }
 
@@ -173,9 +146,11 @@
 
     & .obj_announcement_summary {
       font-size: 1.25rem;
+      line-height: 1.25;
 
       & h2 {
         font-size: 1.5rem;
+        line-height: 1.15;
       }
 
       & .summary {
