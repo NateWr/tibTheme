@@ -1,0 +1,190 @@
+/**
+ * Styles for content pages
+ *
+ * Includes about the journal, editorial team,
+ * submissions, contact, privacy policy, custom
+ * navigation menu pages, and announcements.
+ */
+.tibop_custom_page .pkp_structure_main,
+.page_about,
+.page_submissions,
+.page_editorial_team,
+.page_privacy,
+.page_announcement,
+.page_announcements,
+.page_contact {
+  max-width: 896px;
+  margin-left: auto;
+  margin-right: auto;
+
+  & h1 {
+    font-size: 2rem;
+  }
+
+  & a {
+    color: var(--page-text);
+
+    &:focus-visible {
+      outline: 2px solid var(--page-text);
+      outline-offset: 2px;
+      text-decoration: none;
+    }
+  }
+}
+
+.page_submissions {
+
+  .submission_checklist {
+
+    & ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    & li {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0;
+
+      & .fa-check {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+      }
+    }
+  }
+}
+
+.page_announcement,
+.page_announcements {
+
+  & .date,
+  & .date:before {
+    color: var(--page-text);
+  }
+}
+
+.page_announcements {
+
+  & .cmp_announcements {
+
+    & li {
+      border: none;
+    }
+  }
+
+  & .obj_announcement_summary {
+
+    & h2 {
+      font-size: 1.25rem;
+    }
+
+    & .summary {
+      font-size: 1rem;
+    }
+
+    & .read_more {
+      font-size: 1rem;
+      color: var(--page-text);
+    }
+  }
+}
+
+@media (--tablets) {
+
+  .page_submissions {
+
+    .submission_checklist {
+
+      & ul,
+      & li {
+        border: none;
+      }
+
+      & ul {
+        margin-left: 2rem;
+        gap: 2rem;
+      }
+
+      & li {
+        gap: 1rem;
+      }
+    }
+  }
+}
+
+@media (--laptops-sm) {
+
+  & .tibop_custom_page .pkp_structure_main,
+  & .page_about,
+  & .page_submissions,
+  & .page_editorial_team,
+  & .page_privacy,
+  & .page_announcement,
+  & .page_announcements,
+  & .page_contact {
+    font-size: 1.25rem;
+
+    & h1 {
+      margin-bottom: 3rem;
+      font-size: 3rem;
+      line-height: 1.15;
+    }
+
+    & p {
+      line-height: 1.75;
+    }
+  }
+
+  & .page_content {
+
+    & h3,
+    & .address,
+    & .affiliation,
+    & .phone,
+    & .email {
+      font-size: 1.25rem;
+    }
+  }
+
+  & .page_submissions {
+
+    & .cmp_notification {
+      margin: 3rem 0;
+      padding: 2rem;
+      font-size: 1.125rem;
+    }
+
+    & .submission_checklist {
+
+      ul {
+        font-size: 1.25rem;
+      }
+
+      & .fa-check {
+        top: 0.25rem;
+      }
+    }
+  }
+
+  .page_announcements {
+
+    & .obj_announcement_summary {
+      font-size: 1.25rem;
+
+      & h2 {
+        font-size: 1.5rem;
+      }
+
+      & .summary {
+        font-size: 1.125rem;
+      }
+
+      & .read_more {
+        font-size: 1.125rem;
+      }
+    }
+  }
+}

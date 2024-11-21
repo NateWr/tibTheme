@@ -33,7 +33,7 @@ class TibOPTheme extends ThemePlugin
         $this->addStyle('variables', $this->getCssVariables(), ['inline' => true]);
         $this->addViteAssets(['src/main.js']);
 
-        HookRegistry::register('TemplateManager::display', [$this, 'addGlobalTemplateData']);
+        HookRegistry::register('TemplateManager::display', [$this, 'addTemplateData']);
         HookRegistry::register('TemplateManager::display', [$this, 'displayTemplate'], HOOK_SEQUENCE_LAST);
     }
 
@@ -64,7 +64,7 @@ class TibOPTheme extends ThemePlugin
      * This callback always returns false, so it never blocks other
      * callbacks registered to the same hook.
      */
-    public function addGlobalTemplateData(string $hookName, array $args): bool
+    public function addTemplateData(string $hookName, array $args): bool
     {
         /** @var TemplateManager */
         $templateMgr = $args[0];
@@ -72,6 +72,10 @@ class TibOPTheme extends ThemePlugin
 
         if (substr($template, 0, 8) !== 'frontend') {
             return false;
+        }
+
+        if ($template === 'frontend/pages/navigationMenuItemViewContent.tpl') {
+            $this->addCustomPageData($templateMgr);
         }
 
         $templateMgr->assign([
@@ -86,6 +90,27 @@ class TibOPTheme extends ThemePlugin
     }
 
     /**
+     * Add template data to custom pages
+     *
+     * Overrides the `$requestedOp` template variable in order to add a custom
+     * class to the body tag. This class is necessary to target styles for a
+     * custom page.
+     *
+     * These are custom pages created as a navigation menu item.
+     *
+     * Warning: in the default theme, the $requestedOp is only used in the header.
+     * However, if the variable is used elsewhere, this override could cause
+     * problems. This override should only occur on the custom nav menu pages.
+     */
+    protected function addCustomPageData(TemplateManager $templateMgr): void
+    {
+        $op = $templateMgr->get_template_vars('requestedOp');
+        $templateMgr->assign([
+            'requestedOp' => "$op tibop_custom_page",
+        ]);
+    }
+
+    /**
      * Insert custom HTML into the rendered templates
      *
      * This callback intercepts and modifies the HTML rendered by
@@ -93,7 +118,7 @@ class TibOPTheme extends ThemePlugin
      * after this one, so it should always be registered as the
      * last callback.
      *
-     * If possible, use self::addGlobalTemplateData() instead.
+     * If possible, use self::addTemplateData() instead.
      */
     public function displayTemplate(string $hookName, array $args): bool
     {
