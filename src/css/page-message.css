@@ -13,13 +13,17 @@
     font-size: 2rem;
   }
 
-  & .cmp_back_link a {
-    color: var(--page-text);
+  & .description,
+  & .cmp_back_link {
 
-    &:focus-visible {
-      outline: 2px solid;
-      outline-offset: 2px;
-      text-decoration: none;
+    a {
+      color: var(--page-text);
+
+      &:focus-visible {
+        outline: 2px solid;
+        outline-offset: 2px;
+        text-decoration: none;
+      }
     }
   }
 }
