@@ -84,6 +84,13 @@
       }
     }
   }
+
+  & .additional_content {
+    border: none;
+    max-width: 992px;
+    margin: 6rem auto;
+    padding: 0;
+  }
 }
 
 @media (--tablets) {
@@ -111,6 +118,14 @@
       & .more:before {
         content: none;
       }
+    }
+  }
+
+  & .additional_content {
+    font-size: 1.125rem;
+
+    & p {
+      line-height: 1.75;
     }
   }
 }
