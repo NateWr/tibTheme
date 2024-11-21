@@ -118,7 +118,7 @@
     }
   }
 
-  .pkp_block {
+  & .pkp_block {
     padding: 0;
 
     & .title {
@@ -139,10 +139,17 @@
     }
   }
 
-  .block_web_feed {
+  & .block_web_feed {
 
-    .content ul li {
+    & .content ul li {
       padding: 0;
+    }
+  }
+
+  & .block_browse {
+
+    & .has_submenu {
+      color: var(--page-text);
     }
   }
 }
@@ -226,6 +233,14 @@
   .tibop-footer-columns {
     flex-direction: row;
     gap: 3rem;
+  }
+
+  .tibop-sidebar {
+    flex-wrap: wrap;
+
+    & .pkp_block {
+      max-width: 24rem;
+    }
   }
 
   .tibop-footer-btm {
