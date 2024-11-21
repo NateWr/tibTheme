@@ -1,0 +1,11 @@
+/**
+ * Styles for a notice / notification
+ * element
+ */
+.tibop-notification,
+.cmp_notification {
+  padding: 1rem;
+  background: var(--page-shade);
+  color: var(--page-text);
+  border: none;
+}

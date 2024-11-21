@@ -13,7 +13,7 @@
     color: var(--page-text);
   }
 
-  li:has(+ [aria-current="page"]) .separator,
+  li:has(+ .current) .separator,
   span[aria-current="page"] {
     @apply sr-only;
   }

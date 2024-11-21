@@ -1,12 +1,14 @@
 @import "css/variables.css";
 @import "css/utility-button.css";
 @import "css/utility-input.css";
+@import "css/utility-notification.css";
 @import "css/reset-layout.css";
 @import "css/article-summary.css";
 @import "css/breadcrumbs.css";
 @import "css/header.css";
 @import "css/header-site.css";
 @import "css/issue-toc.css";
+@import "css/pagination.css";
 @import "css/tibop-footer.css";
 @import "css/tibop-footer-site.css";
 @import "css/tibop-header.css";
@@ -16,3 +18,4 @@
 @import "css/page-galley.css";
 @import "css/page-index-journal.css";
 @import "css/page-issue.css";
+@import "css/page-search.css";

@@ -1,0 +1,144 @@
+.page_search {
+
+  & .search_input input,
+  & .search_advanced input,
+  & .search_advanced select {
+    @apply input;
+  }
+
+  & .search_input .query {
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1.25rem;
+
+    &::placeholder {
+      color: var(--page-text);
+      opacity: 0.65;
+    }
+  }
+
+  & .search_advanced {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-color: var(--page-text);
+
+    > legend {
+      padding: 0 1rem;
+      font-weight: 700;
+    }
+  }
+
+  & .date_range {
+
+    & legend {
+      @apply label;
+    }
+
+    & fieldset {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    & select {
+      margin: 0 !important;
+    }
+
+    & [name*="Year"] {
+      width: 100%;
+      min-width: 5em;
+    }
+
+    & [name*="Day"] {
+      width: 100%;
+      min-width: 3em;
+    }
+
+    & [name*="Month"] {
+      width: 100%;
+      min-width: 8em;
+    }
+  }
+
+  & .author {
+
+    label {
+      @apply label;
+    }
+  }
+
+  & button.submit {
+    @apply tibop-button;
+    flex-direction: row-reverse;
+    gap: 0.25rem;
+    width: 100%;
+    font-family: var(--font);
+    font-weight: 700;
+
+    &:after {
+      position: relative;
+      right: auto;
+      left: auto;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      width: 1.5rem;
+      height: 1.5rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  /**
+   * Reveal hidden results count above search
+   * results
+   */
+  .pkp_screen_reader[role="status"] {
+    @apply tibop-notification;
+    margin-top: 4rem;
+    position: relative !important;
+    left: auto;
+    right: auto;
+    clip: none;
+  }
+
+  .search_results {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    & .obj_article_summary {
+      margin: 0;
+    }
+  }
+
+  .cmp_pagination {
+    margin-top: 4rem;
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--page-text);
+
+    > strong,
+    > a {
+      padding: 0.25rem 0.5rem;
+      background: var(--page-bg);
+      border-radius: var(--button-radius);
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--page-text);
+    }
+
+    > strong {
+      background: var(--button-bg);
+      color: var(--button-text);
+    }
+
+    > a {
+
+      &:focus-visible {
+        outline: 2px solid;
+      }
+    }
+  }
+}

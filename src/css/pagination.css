@@ -1,0 +1,20 @@
+/**
+ * Styles for the pagination component
+ */
+.cmp_pagination {
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  background: var(--page-shade);
+  color: var(--page-text);
+
+  & .next,
+  & .prev {
+    color: var(--page-text);
+
+    &:focus-visible {
+      outline: 2px solid;
+      outline-offset: 0.25rem;
+    }
+  }
+}
