@@ -1,0 +1,126 @@
+/**
+ * Styles for a category page
+ */
+.page_catalog_category {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+
+  & h1 {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+
+  & .article_count {
+    float: none;
+    color: var(--page-text);
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+
+  & .about_section.about_section {
+    color: var(--page-text);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+    font-style: normal;
+  }
+
+  & .subcategories {
+
+    & h2 {
+      margin-bottom: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    & li {
+      padding: 0;
+      margin: 0.5rem 0;
+    }
+
+    & a {
+      color: var(--page-text);
+      text-decoration: underline;
+
+      &:focus-visible {
+        outline: 2px solid;
+        outline-offset: 2px;
+        text-decoration: none;;
+      }
+    }
+  }
+
+  > h2.title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+}
+
+@media (--tablets) {
+
+  .page_catalog_category {
+
+    & .subcategories {
+      border: none;
+      margin: 2rem 0;
+      padding: 0;
+
+      & h2 {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        padding: 0;
+        color: var(--page-text);
+      }
+    }
+  }
+}
+
+@media (--tablets-landscape) {
+
+  .page_catalog_category {
+
+    & .description {
+      max-width: 48rem;
+    }
+  }
+}
+
+@media (--laptops-sm) {
+
+  .page_catalog_category {
+
+    & h1 {
+      margin-bottom: 3rem;
+      font-size: 3rem;
+      line-height: 1.15;
+    }
+
+    & .article_count {
+      font-size: 1.5rem;
+      line-height: 1.25;
+    }
+
+    & .about_section.about_section {
+      font-size: 1.25rem;
+
+      & p {
+        line-height: 1.75;
+      }
+    }
+
+    & .subcategories {
+
+      & h2 {
+        font-size: 1.5rem;
+        line-height: 1.5;
+      }
+
+      & a {
+        font-size: 1.125rem;
+      }
+    }
+  }
+}
