@@ -190,6 +190,10 @@
         background: transparent;
         box-shadow: none;
         margin-left: 0.75rem;
+
+        & li {
+          display: inline-block;
+        }
       }
 
       & a {
@@ -213,6 +217,18 @@
       & ul li:first-child a,
       & ul li:last-child a {
         border-radius: 9999px;
+      }
+
+      & .task_count {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 9999px;
+        background: var(--tibop-header-shade);
+        font-size: 0.75rem;
+        font-weight: 500;
       }
     }
   }

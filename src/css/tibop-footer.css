@@ -73,13 +73,20 @@
     margin-bottom: 0;
 
     & a {
+      display: inline-block;
       padding: 0.25rem 0.5rem;
       color: var(--footer-text);
       text-decoration: none;
+      font-size: 1rem;
+      line-height: 1.25;
       font-weight: 600;
 
       &:focus-visible {
         outline: 2px solid;
+      }
+
+      &:has(.task_count) {
+        white-space: nowrap;
       }
     }
 
@@ -96,6 +103,18 @@
       & a {
         font-weight: 400;
       }
+    }
+
+    & .task_count {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 9999px;
+      background: var(--tibop-header-shade);
+      font-size: 0.75rem;
+      font-weight: 500;
     }
   }
 
@@ -209,10 +228,6 @@
     gap: 3rem;
   }
 
-  .tibop-footer-column-about {
-    max-width: 50%;
-  }
-
   .tibop-footer-btm {
     padding: 1rem;
     flex-direction: row;
@@ -243,6 +258,16 @@
 }
 
 @media (--tablets-landscape) {
+
+  .tibop-footer-column {
+    flex: 0 1 auto;
+    width: 25%;
+  }
+
+  .tibop-footer-column-about {
+    flex: 1 1 auto;
+    width: 50%;
+  }
 
   .tibop-footer {
 
