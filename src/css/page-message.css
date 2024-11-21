@@ -1,0 +1,25 @@
+/**
+ * Styles for the message, error and information
+ * pages.
+ *
+ * These correspond with the message.tpl, error.tpl, and
+ * information.tpl pages of the default template.
+ */
+.page_message,
+.page_error,
+.page_information {
+
+  & h1 {
+    font-size: 2rem;
+  }
+
+  & .cmp_back_link a {
+    color: var(--page-text);
+
+    &:focus-visible {
+      outline: 2px solid;
+      outline-offset: 2px;
+      text-decoration: none;
+    }
+  }
+}

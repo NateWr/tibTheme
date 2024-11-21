@@ -20,7 +20,14 @@
   }
 }
 
-.label {
+.input-label {
   font-size: 1rem;
+  font-style: normal;
   font-weight: 500;
+}
+
+.input-legend {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 700;
 }

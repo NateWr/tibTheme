@@ -1,0 +1,72 @@
+/**
+ * Styles for the login, register, forgot
+ * password, and registration complete pages
+ */
+.page_register,
+.page_login,
+.page_lost_password,
+.page_register_complete {
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+
+  & h1 {
+    font-size: 2rem;
+  }
+}
+
+.page_login {
+
+  & .password a {
+    display: inline-block;
+    color: var(--page-text);
+
+    &:focus-visible {
+      outline: 2px solid;
+      outline-offset: 2px;
+      text-decoration: none;
+
+    }
+  }
+}
+
+.page_register {
+
+  & .reviewer_interests {
+    display: none;
+
+    &.is_visible {
+      display: block;
+    }
+  }
+
+  & #formErrors {
+    @apply tibop-notification;
+
+    & .pkp_form_error_list a {
+      color: var(--page-text);
+
+      &:focus-visible {
+        outline: 2px solid;
+        outline-offset: 2px;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.page_register_complete {
+
+  & .registration_complete_actions {
+
+    & a {
+      color: var(--page-text);
+
+      &:focus-visible {
+        outline: 2px solid;
+        outline-offset: 2px;
+        text-decoration: none;;
+      }
+    }
+  }
+}

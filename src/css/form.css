@@ -1,0 +1,60 @@
+/**
+ * Styles for the form component from
+ * the default theme.
+ */
+.cmp_form {
+
+  & .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 0 2rem;
+
+    > div {
+      padding: 0;
+    }
+  }
+
+  & legend {
+    @apply input-legend;
+  }
+
+  & .label {
+    @apply input-label;
+  }
+
+  & input:not([type="submit"]),
+  & select {
+    @apply input;
+  }
+
+  & .buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    &:before,
+    &:after {
+      content: none;
+    }
+
+    & [type="submit"] {
+      @apply tibop-button;
+    }
+
+    & a {
+      margin: 0;
+      color: var(--page-text);
+
+      &:focus-visible {
+        outline: 2px solid;
+        outline-offset: 0.25rem;
+        text-decoration: none;
+      }
+    }
+  }
+
+  & .pkp_form_error {
+    @apply tibop-notification;
+  }
+}

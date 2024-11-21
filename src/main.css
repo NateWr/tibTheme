@@ -5,6 +5,7 @@
 @import "css/reset-layout.css";
 @import "css/article-summary.css";
 @import "css/breadcrumbs.css";
+@import "css/form.css";
 @import "css/header.css";
 @import "css/header-site.css";
 @import "css/issue-toc.css";
@@ -19,4 +20,6 @@
 @import "css/page-galley.css";
 @import "css/page-index-journal.css";
 @import "css/page-issue.css";
+@import "css/page-login.css";
+@import "css/page-message.css";
 @import "css/page-search.css";

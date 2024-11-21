@@ -31,7 +31,7 @@
   & .date_range {
 
     & legend {
-      @apply label;
+      @apply input-label;
     }
 
     & fieldset {
@@ -63,7 +63,7 @@
   & .author {
 
     label {
-      @apply label;
+      @apply input-label;
     }
   }
 
