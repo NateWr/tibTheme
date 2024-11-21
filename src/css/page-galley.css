@@ -1,0 +1,28 @@
+/**
+ * Styles for pages that show a PDF or
+ * HTML galley.
+ */
+.header_view,
+.header_view .return,
+.header_view .title,
+.header_view .download {
+  background: var(--header-bg);
+  color: var(--header-text);
+}
+
+.header_view .return,
+.header_view .title,
+.header_view .download {
+
+  &:hover {
+    background: var(--header-bg);
+    color: var(--header-text);
+  }
+
+  &:focus-visible {
+    background: var(--header-bg);
+    color: var(--header-text);
+    outline: 2px solid var(--header-text);
+    outline-offset: -0.25rem;
+  }
+}
