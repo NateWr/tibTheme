@@ -8,13 +8,18 @@
     line-height: 1.2;
   }
 
-  a,
-  span {
+  & a,
+  & span {
     color: var(--page-text);
   }
 
-  li:has(+ .current) .separator,
-  span[aria-current="page"] {
+  & a:focus-visible {
+    outline: 2px solid var(--page-text);
+    outline-offset: 2px;
+  }
+
+  & li:has(+ .current) .separator,
+  & span[aria-current="page"] {
     @apply sr-only;
   }
 }

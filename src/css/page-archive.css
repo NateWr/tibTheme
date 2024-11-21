@@ -1,0 +1,110 @@
+/**
+ * Styles for the issue archive page
+ */
+.page_issue_archive {
+
+  & h1 {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+
+  & .issues_archive {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    border: 0;
+    margin: 0;
+
+    > li {
+      padding: 0;
+      border: none;
+    }
+  }
+
+  & .obj_issue_summary {
+
+    & .cover {
+
+      &:focus-visible {
+        outline: 2px solid var(--page-text);
+      }
+
+      & img {
+        width: 100%;
+        height: auto;
+        max-width: 16rem;
+        max-height: none;
+      }
+    }
+
+    & .title {
+      display: block;
+      font-size: 1.25rem;
+      line-height: 1.25;
+      font-weight: 700;
+      font-family: var(--font);
+      color: var(--page-text);
+
+      &:focus-visible {
+        outline: 2px solid;
+        outline-offset: 0.125rem;
+      }
+    }
+
+    & .series {
+      font-size: 1rem;
+      line-height: 1.25;
+      font-weight: 400;
+      color: var(--page-text);
+    }
+
+    & .description {
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media (--tablets) {
+
+  .page_issue_archive {
+
+    & .issues_archive {
+
+      & .cover {
+
+        img {
+          max-width: none;
+        }
+      }
+    }
+  }
+}
+
+@media (--tablets-landscape) {
+
+  .page_issue_archive {
+
+    & .issues_archive {
+
+      & .cover {
+        max-width: 35%;
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+
+@media (--tablets-landscape) {
+
+  .page_issue_archive {
+
+    & .issues_archive {
+
+      & .cover {
+        margin-right: 3rem;
+        margin-bottom: 3rem;
+      }
+    }
+  }
+}
