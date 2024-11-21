@@ -112,6 +112,12 @@
 
     & a {
       color: var(--page-text);
+
+      &:focus-visible {
+        outline: 2px solid;
+        outline-offset: 2px;
+        text-decoration: none;
+      }
     }
   }
 
@@ -121,6 +127,16 @@
       margin-top: 1rem;
       margin-bottom: 1rem;
       line-height: 1.25;
+    }
+
+    & a {
+      color: var(--page-text);
+
+      &:focus-visible {
+        outline: 2px solid;
+        outline-offset: 2px;
+        text-decoration: none;
+      }
     }
   }
 

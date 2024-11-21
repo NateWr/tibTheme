@@ -46,6 +46,19 @@ body {
     }
   }
 
+  & .heading {
+
+    & .doi a {
+      color: var(--page-text);
+
+      &:focus-visible {
+        outline: 2px solid;
+        outline-offset: 2px;
+        text-decoration: none;
+      }
+    }
+  }
+
   .section {
     margin-bottom: 6rem;
 
@@ -123,6 +136,7 @@ body {
       }
 
       & .description,
+      & .doi,
       & .published {
         margin-left: var(--issue-column-left-width);
         padding-left: var(--issue-gap);

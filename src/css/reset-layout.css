@@ -68,9 +68,15 @@ body {
   }
 }
 
-.page {
+.page,
+.tibop_custom_page .pkp_structure_main {
   padding: 1.5rem var(--page-inline-padding);
 }
+
+.tibop_custom_page .pkp_structure_main .page {
+  padding: 0;
+}
+
 
 .page_index_journal {
   padding: 0 var(--page-inline-padding);
