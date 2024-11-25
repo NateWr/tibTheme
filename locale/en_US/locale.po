@@ -9,3 +9,6 @@ msgstr "Account"
 
 msgid "plugins.themes.tibOPTheme.loggedInAs"
 msgstr "Logged in as <strong>{$username}</strong>."
+
+msgid "plugins.themes.tibOPTheme.contexts"
+msgstr "Journals and Conference Proceedings"

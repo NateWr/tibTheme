@@ -1,0 +1,215 @@
+/**
+ * Styles for the TIB-OP Homepage
+ */
+.tibop-page {
+  padding: 0;
+  margin-bottom: 6rem;
+}
+
+.pkp_structure_content:has(.tibop-page),
+.pkp_structure_main:has(.tibop-page) {
+  width: 100%;
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.tibop-about-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  height: calc(100vh - 4rem);
+  height: calc(100dvh - 4rem);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  overflow-x: hidden;
+}
+
+.tibop-about-line {
+  position: relative;
+
+  > svg {
+    width: 75vw;
+    height: auto;
+  }
+}
+
+.tibop-about-line:first-child {
+  align-self: flex-start;
+  left: -35vw;
+}
+
+.tibop-about-line:last-child {
+  align-self: flex-end;
+  left: 35vw;
+  transform: scale(-1, 1);
+}
+
+.tibop-about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tibop-about {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  > p {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.75;
+  }
+}
+
+.tibop-quicklinks {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  & a {
+    @apply tibop-button;
+  }
+}
+
+.tibop-contexts {
+  padding: 2rem 1.5rem;
+
+  & h2 {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+}
+
+.tibop-contexts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tibop-context {
+
+  & svg {
+    display: none;
+  }
+
+  & h3 {
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.tibop-context-title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+
+  & a {
+    color: var(--page-text);
+    text-decoration: none;
+
+    &:focus-visible {
+      outline: 2px solid;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.tibop-context-desc {
+  font-weight: 500;
+
+  & p:first-child {
+    margin-top: 0;
+  }
+}
+
+.tibop-context-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  margin-top: 2rem;
+  padding: 0;
+  list-style: none;
+
+  & a {
+    @apply tibop-button-grey;
+  }
+}
+
+@media (--tablets) {
+
+  .tibop-about-content {
+    max-width: 32rem;
+  }
+
+  .tibop-contexts {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .tibop-contexts {
+
+    & h2 {
+      margin-bottom: 3rem;
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (--tablets-landscape) {
+
+  .tibop-page {
+    overflow-x: hidden;
+  }
+
+  .tibop-about-wrapper {
+    position: relative;
+    height: auto;
+    max-width: 32rem;
+    margin: 4rem auto 8rem;
+    overflow: visible;
+  }
+
+  .tibop-about-line {
+    position: absolute;
+
+    & svg {
+      width: 32rem;
+    }
+  }
+
+  .tibop-about-line:first-child {
+    bottom: 65%;
+    right: 106.25%;
+    left: auto;
+  }
+
+  .tibop-about-line:last-child {
+    top: 65%;
+    left: 85%;
+  }
+
+  .tibop-contexts {
+    max-width: 767px;
+    margin-left: auto;
+    margin-right: auto;
+
+    & h2 {
+      margin-bottom: 4rem;
+    }
+  }
+}

@@ -106,6 +106,7 @@
       border: none;
       border-radius: 9999px;
       color: var(--tibop-header-text);
+      background: transparent;
 
       & svg {
         width: 1.5rem;

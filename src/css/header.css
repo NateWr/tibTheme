@@ -45,6 +45,15 @@
       outline: 2px solid var(--header-text);
       outline-offset: -0.5rem;
     }
+
+    > span::before,
+    > span::after {
+      background: var(--header-text);
+    }
+
+    > span {
+      border-color: var(--header-text);
+    }
   }
 
   .pkp_site_name {
