@@ -36,28 +36,30 @@
           {assign var="description" value=$context->getLocalizedDescription()}
           <li class="tibop-context">
             {include file="frontend/tibop-lines.svg"}
-            <h3 class="tibop-context-title">
-              <a href="{$url}">
-                {$context->getLocalizedName()|escape}
-              </a>
-            </h3>
-            {if $context->getLocalizedDescription()}
-              <div class="tibop-context-desc">
-                {$context->getLocalizedDescription()|strip_unsafe_html}
-              </div>
-            {/if}
-            <ul class="tibop-context-links">
-              <li class="tibop-context-view">
+            <div class="tibop-context-inner">
+              <h3 class="tibop-context-title">
                 <a href="{$url}">
-                  {translate key="site.journalView"}
+                  {$context->getLocalizedName()|escape}
                 </a>
-              </li>
-              <li class="tibop-context-current">
-                <a href="{url context=$context->getPath() page="issue" op="current"}">
-                  {translate key="site.journalCurrent"}
-                </a>
-              </li>
-            </ul>
+              </h3>
+              {if $context->getLocalizedDescription()}
+                <div class="tibop-context-desc">
+                  {$context->getLocalizedDescription()|strip_unsafe_html}
+                </div>
+              {/if}
+              <ul class="tibop-context-links">
+                <li class="tibop-context-view">
+                  <a href="{$url}">
+                    {translate key="site.journalView"}
+                  </a>
+                </li>
+                <li class="tibop-context-current">
+                  <a href="{url context=$context->getPath() page="issue" op="current"}">
+                    {translate key="site.journalCurrent"}
+                  </a>
+                </li>
+              </ul>
+            </div>
           </li>
         {/foreach}
       </ul>

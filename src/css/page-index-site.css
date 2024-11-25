@@ -212,4 +212,18 @@
       margin-bottom: 4rem;
     }
   }
+
+  .tibop-context {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: 2rem;
+
+    & svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      position: relative;
+      top: 0.25rem;
+    }
+  }
 }
