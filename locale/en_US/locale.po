@@ -12,3 +12,15 @@ msgstr "Logged in as <strong>{$username}</strong>."
 
 msgid "plugins.themes.tibOPTheme.contexts"
 msgstr "Journals and Conference Proceedings"
+
+msgid "plugins.themes.tibOPTheme.viewSeries"
+msgstr "View Series"
+
+msgid "plugins.themes.tibOPTheme.currentVolume"
+msgstr "Current Volume"
+
+msgid "plugins.themes.tibOPTheme.option.conferenceContexts.label"
+msgstr "Conference Proceedings"
+
+msgid "plugins.themes.tibOPTheme.option.conferenceContexts.description"
+msgstr "Select the publications which publish conference proceedings. This will ensure the correct terminology is used for journals and conference proceedings on the TIB Open Publishing homepage."

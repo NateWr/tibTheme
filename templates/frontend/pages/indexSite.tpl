@@ -47,15 +47,22 @@
                   {$context->getLocalizedDescription()|strip_unsafe_html}
                 </div>
               {/if}
+              {if in_array($context->getId(), $activeTheme->getOption('conferenceContexts'))}
+                {assign var="viewContext" value={translate key="plugins.themes.tibOPTheme.viewSeries"}}
+                {assign var="viewCurrent" value={translate key="plugins.themes.tibOPTheme.currentVolume"}}
+              {else}
+                {assign var="viewContext" value={translate key="site.journalView"}}
+                {assign var="viewCurrent" value={translate key="site.journalCurrent"}}
+              {/if}
               <ul class="tibop-context-links">
                 <li class="tibop-context-view">
                   <a href="{$url}">
-                    {translate key="site.journalView"}
+                    {$viewContext}
                   </a>
                 </li>
                 <li class="tibop-context-current">
                   <a href="{url context=$context->getPath() page="issue" op="current"}">
-                    {translate key="site.journalCurrent"}
+                    {$viewCurrent}
                   </a>
                 </li>
               </ul>

@@ -29,6 +29,10 @@ class TibOPTheme extends ThemePlugin
             $this->addMenuArea(['primary', 'user', 'quicklinks', 'policy']);
         }
 
+        if (!$request->getContext()) {
+            $this->addSiteConferencesOption();
+        }
+
         $this->addFonts($this->getPluginUrl());
         $this->addStyle('variables', $this->getCssVariables(), ['inline' => true]);
         $this->addViteAssets(['src/main.js']);
@@ -148,6 +152,40 @@ class TibOPTheme extends ThemePlugin
         }
 
         return false;
+    }
+
+    /**
+     * Add a theme option at site level to select which
+     * contexts are conferences
+     *
+     * This theme option is used to adapt the text of the
+     * buttons in the context link, so that it reflects
+     * whether the context publishes journals or proceedings.
+     */
+    protected function addSiteConferencesOption(): void
+    {
+        $options = [];
+        $user = Application::get()->getRequest()->getUser();
+
+        if ($user) {
+            $options = array_map(
+                function(stdClass $context) {
+                    return [
+                        'value' => $context->id,
+                        'label' => $context->name,
+                    ];
+                },
+                Services::get('context')->getManySummary(['userId' => $user->getId()])
+            );
+        }
+
+        $this->addOption('conferenceContexts', 'FieldOptions', [
+            'label' => __('plugins.themes.tibOPTheme.option.conferenceContexts.label'),
+            'type' => 'checkbox',
+            'description' => __('plugins.themes.tibOPTheme.option.conferenceContexts.label'),
+            'options' => $options,
+            'default' => [],
+        ]);
     }
 
     /**
