@@ -142,3 +142,27 @@
     }
   }
 }
+
+@media (--tablets) {
+
+  .page_search {
+
+    .date_range,
+    .author {
+      float: none;
+      width: 100%;
+    }
+  }
+}
+
+@media (--tablets-landscape) {
+
+  .page_search {
+
+    .search_input,
+    .search_advanced,
+    .submit {
+      max-width: 32rem;
+    }
+  }
+}
