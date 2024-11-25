@@ -1,0 +1,46 @@
+/**
+ * Styles for the partner logos at site level
+ *
+ * These styles will not appear unless specific code is used
+ * in a custom page or about the site area.
+ *
+ * Example:
+ *
+ * <div class="partner-logos">
+ *   <a href="..."><img src="..."></a>
+ *   <a href="..."><img src="..."></a>
+ *   <img src="...">
+ * </div>
+ */
+.partner-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  > * {
+    flex: 0 0 16rem;
+    max-height: 10rem;
+    height: 10rem;
+    max-width: 50%;
+    width: 100%;
+    padding: 2rem;
+    display: grid;
+    place-items: center;
+  }
+
+  & img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  & a {
+    text-decoration: none;
+    border: none;
+    background: transparent;
+
+    & :focus-visible {
+      outline: 2px solid currentColor;
+    }
+  }
+}

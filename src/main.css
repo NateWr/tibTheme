@@ -8,7 +8,6 @@
 @import "css/breadcrumbs.css";
 @import "css/form.css";
 @import "css/header.css";
-@import "css/header-site.css";
 @import "css/issue-toc.css";
 @import "css/pagination.css";
 @import "css/tibop-footer.css";
@@ -22,8 +21,11 @@
 @import "css/page-content.css";
 @import "css/page-galley.css";
 @import "css/page-index-journal.css";
-@import "css/page-index-site.css";
 @import "css/page-issue.css";
 @import "css/page-login.css";
 @import "css/page-message.css";
 @import "css/page-search.css";
+@import "css/site-header.css";
+@import "css/site-page-index.css";
+@import "css/site-partner-logos.css";
+

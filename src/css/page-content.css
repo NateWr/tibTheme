@@ -30,6 +30,11 @@
       text-decoration: none;
     }
   }
+
+  & iframe {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .page_submissions {
