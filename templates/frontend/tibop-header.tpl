@@ -65,7 +65,7 @@
           id="tibopUserDropdown"
         >
           <span class="pkp_screen_reader">
-            {translate key="plugins.themes.tibOPTheme.account"}
+            {translate key="plugins.themes.tibTheme.account"}
           </span>
           {include file="frontend/icons/user.svg"}
         </button>
@@ -77,7 +77,7 @@
           {if $isUserLoggedIn}
             <hr class="dropdown-divider">
             <div class="tibop-header-logged-in-as">
-              {translate key="plugins.themes.tibOPTheme.loggedInAs" username=$currentUser->getData('username')}
+              {translate key="plugins.themes.tibTheme.loggedInAs" username=$currentUser->getData('username')}
               <a
                 {if $isUserLoggedInAs}
                   href="{url page="login" op="signOutAsUser"}"

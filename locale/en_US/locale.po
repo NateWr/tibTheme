@@ -1,26 +1,26 @@
-msgid "plugins.themes.tibOPTheme.name"
+msgid "plugins.themes.tibTheme.name"
 msgstr "TIB Open Publishing Theme"
 
-msgid "plugins.themes.tibOPTheme.description"
+msgid "plugins.themes.tibTheme.description"
 msgstr "Custom theme for journals and conference proceedings hosted by TIB Open Publishing."
 
-msgid "plugins.themes.tibOPTheme.account"
+msgid "plugins.themes.tibTheme.account"
 msgstr "Account"
 
-msgid "plugins.themes.tibOPTheme.loggedInAs"
+msgid "plugins.themes.tibTheme.loggedInAs"
 msgstr "Logged in as <strong>{$username}</strong>."
 
-msgid "plugins.themes.tibOPTheme.contexts"
+msgid "plugins.themes.tibTheme.contexts"
 msgstr "Journals and Conference Proceedings"
 
-msgid "plugins.themes.tibOPTheme.viewSeries"
+msgid "plugins.themes.tibTheme.viewSeries"
 msgstr "View Series"
 
-msgid "plugins.themes.tibOPTheme.currentVolume"
+msgid "plugins.themes.tibTheme.currentVolume"
 msgstr "Current Volume"
 
-msgid "plugins.themes.tibOPTheme.option.conferenceContexts.label"
+msgid "plugins.themes.tibTheme.option.conferenceContexts.label"
 msgstr "Conference Proceedings"
 
-msgid "plugins.themes.tibOPTheme.option.conferenceContexts.description"
+msgid "plugins.themes.tibTheme.option.conferenceContexts.description"
 msgstr "Select the publications which publish conference proceedings. This will ensure the correct terminology is used for journals and conference proceedings on the TIB Open Publishing homepage."

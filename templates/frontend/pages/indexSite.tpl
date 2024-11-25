@@ -27,7 +27,7 @@
 
   <div class="tibop-contexts">
     <h2>
-      {translate key="plugins.themes.tibOPTheme.contexts"}
+      {translate key="plugins.themes.tibTheme.contexts"}
     </h2>
     {if $journals|@count}
       <ul class="tibop-contexts-list">
@@ -48,8 +48,8 @@
                 </div>
               {/if}
               {if in_array($context->getId(), $activeTheme->getOption('conferenceContexts'))}
-                {assign var="viewContext" value={translate key="plugins.themes.tibOPTheme.viewSeries"}}
-                {assign var="viewCurrent" value={translate key="plugins.themes.tibOPTheme.currentVolume"}}
+                {assign var="viewContext" value={translate key="plugins.themes.tibTheme.viewSeries"}}
+                {assign var="viewCurrent" value={translate key="plugins.themes.tibTheme.currentVolume"}}
               {else}
                 {assign var="viewContext" value={translate key="site.journalView"}}
                 {assign var="viewCurrent" value={translate key="site.journalCurrent"}}

@@ -1,4 +1,4 @@
 <?php
-require_once('TibOPTheme.inc.php');
+require_once('TibTheme.inc.php');
 
-return new TibOPTheme();
+return new TibTheme();

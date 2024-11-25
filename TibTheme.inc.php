@@ -7,7 +7,7 @@ use NateWr\vite\Loader;
 
 import('lib.pkp.classes.plugins.ThemePlugin');
 
-class TibOPTheme extends ThemePlugin
+class TibTheme extends ThemePlugin
 {
     protected ThemeHelper $themeHelper;
 
@@ -43,12 +43,12 @@ class TibOPTheme extends ThemePlugin
 
     public function getDisplayName()
     {
-        return __('plugins.themes.tibOPTheme.name');
+        return __('plugins.themes.tibTheme.name');
     }
 
     public function getDescription()
     {
-        return __('plugins.themes.tibOPTheme.description');
+        return __('plugins.themes.tibTheme.description');
     }
 
     /**
@@ -180,9 +180,9 @@ class TibOPTheme extends ThemePlugin
         }
 
         $this->addOption('conferenceContexts', 'FieldOptions', [
-            'label' => __('plugins.themes.tibOPTheme.option.conferenceContexts.label'),
+            'label' => __('plugins.themes.tibTheme.option.conferenceContexts.label'),
             'type' => 'checkbox',
-            'description' => __('plugins.themes.tibOPTheme.option.conferenceContexts.label'),
+            'description' => __('plugins.themes.tibTheme.option.conferenceContexts.label'),
             'options' => $options,
             'default' => [],
         ]);
