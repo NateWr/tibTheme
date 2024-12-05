@@ -1,15 +1,12 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
-
-use NateWr\themehelper\TemplatePlugin;
-use NateWr\themehelper\ThemeHelper;
-use NateWr\vite\Loader;
-
 import('lib.pkp.classes.plugins.ThemePlugin');
+import('plugins.themes.tibTheme.classes.TibThemeHelper');
+import('plugins.themes.tibTheme.classes.TibThemeTemplatePlugin');
+import('plugins.themes.tibTheme.classes.TibThemeViteLoader');
 
 class TibTheme extends ThemePlugin
 {
-    protected ThemeHelper $themeHelper;
+    protected TibThemeHelper $themeHelper;
 
     public function isActive()
     {
@@ -253,10 +250,10 @@ class TibTheme extends ThemePlugin
      */
     protected function useThemeHelper(): void
     {
-        $this->themeHelper = new ThemeHelper(TemplateManager::getManager(Application::get()->getRequest()));
+        $this->themeHelper = new TibThemeHelper(TemplateManager::getManager(Application::get()->getRequest()));
         $this->themeHelper->addCommonTemplatePlugins();
         $this->themeHelper->addTemplatePlugin(
-            new TemplatePlugin(
+            new TibThemeTemplatePlugin(
                 type: 'function',
                 name: 'load_menu',
                 callback: [$this, 'loadMenu'],
@@ -293,11 +290,12 @@ class TibTheme extends ThemePlugin
             Application::get()->getRequest()
         );
 
-        $viteLoader = new Loader(
+        $viteLoader = new TibThemeViteLoader(
             templateManager: $templateMgr,
             manifestPath: dirname(__FILE__) . '/dist/.vite/manifest.json',
             serverPath: join('/', [dirname(__FILE__), '.vite.server.json']),
             buildUrl: join('/', [$this->getPluginUrl(), 'dist/']),
+            prefix: $this->getPluginPath(),
             theme: $this,
         );
 

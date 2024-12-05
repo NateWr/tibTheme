@@ -11,7 +11,6 @@ Clone this repository into the `plugins/themes` directory in OJS. Then run the f
 Install dependencies.
 
 ```
-composer install
 npm install
 ```
 
