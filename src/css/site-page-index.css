@@ -53,6 +53,8 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .tibop-about {
@@ -62,7 +64,7 @@
 
   > p {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     line-height: 1.75;
   }
 }
@@ -156,6 +158,13 @@
     max-width: 32rem;
   }
 
+  .tibop-about {
+
+    > p {
+      font-size: 1.5rem;
+    }
+  }
+
   .tibop-contexts {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -182,6 +191,13 @@
     max-width: 32rem;
     margin: 4rem auto 8rem;
     overflow: visible;
+  }
+
+  .tibop-about {
+
+    > p {
+      font-size: 1.25rem;
+    }
   }
 
   .tibop-about-line {
