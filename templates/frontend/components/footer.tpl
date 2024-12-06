@@ -76,7 +76,7 @@
       </a>
       {$tibopSitePolicyMenu}
     </div>
-    {if $currentContext}
+    {if $currentContext && $activeTheme->getOption('showPartnerLogos') === 'show'}
       <div class="tibop-footer-partners">
         {$partnerLogos}
       </div>

@@ -24,3 +24,15 @@ msgstr "Conference Proceedings"
 
 msgid "plugins.themes.tibTheme.option.conferenceContexts.description"
 msgstr "Select the publications which publish conference proceedings. This will ensure the correct terminology is used for journals and conference proceedings on the TIB Open Publishing homepage."
+
+msgid "plugins.themes.tibTheme.option.showPartnerLogos.label"
+msgstr "Partner Logos in Footer"
+
+msgid "plugins.themes.tibTheme.option.showPartnerLogos.description"
+msgstr "This setting requires the Partner Logos plugin to be enabled. By default, partner logos uploaded through the plugin will be shown in the footer of your site. You may want to disable this feature if you have many logos."
+
+msgid "plugins.themes.tibTheme.option.showPartnerLogos.show"
+msgstr "Show partner logos in the footer of every page"
+
+msgid "plugins.themes.tibTheme.option.showPartnerLogos.hide"
+msgstr "Don't show partner logos in the footer of every page"

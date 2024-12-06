@@ -28,6 +28,8 @@ class TibTheme extends ThemePlugin
 
         if (!$request->getContext()) {
             $this->addSiteConferencesOption();
+        } else {
+            $this->addPartnerLogosOption();
         }
 
         $this->addFonts($this->getPluginUrl());
@@ -179,10 +181,35 @@ class TibTheme extends ThemePlugin
         $this->addOption('conferenceContexts', 'FieldOptions', [
             'label' => __('plugins.themes.tibTheme.option.conferenceContexts.label'),
             'type' => 'checkbox',
-            'description' => __('plugins.themes.tibTheme.option.conferenceContexts.label'),
+            'description' => __('plugins.themes.tibTheme.option.conferenceContexts.description'),
             'options' => $options,
             'default' => [],
         ]);
+    }
+
+    /**
+     * Add a theme option at context level to select whether
+     * or not to display partner logos in the footer
+     */
+    protected function addPartnerLogosOption(): void
+    {
+        $this->addOption('showPartnerLogos', 'FieldOptions', [
+            'label' => __('plugins.themes.tibTheme.option.showPartnerLogos.label'),
+            'type' => 'radio',
+            'description' => __('plugins.themes.tibTheme.option.showPartnerLogos.description'),
+            'options' => [
+                [
+                    'value' => 'show',
+                    'label' => __('plugins.themes.tibTheme.option.showPartnerLogos.show'),
+                ],
+                [
+                    'value' => 'hide',
+                    'label' => __('plugins.themes.tibTheme.option.showPartnerLogos.hide'),
+                ],
+            ],
+            'default' => 'show',
+        ]);
+
     }
 
     /**
