@@ -27,3 +27,7 @@ This theme uses [Vite](https://vitejs.dev/) to build CSS/JS assets. Run the foll
 ```bash
 npm run start
 ```
+
+## Licenses
+
+This theme uses the [Hanken Grotesk](https://fonts.google.com/specimen/Hanken+Grotesk) and [Quicksand](https://fonts.google.com/specimen/Quicksand) fonts, which are licensed under the [SIL Open Font License, Version 1.1](https://openfontlicense.org/).
