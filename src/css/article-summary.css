@@ -5,13 +5,9 @@
     line-height: 1.25;
 
     & a {
+      @apply tab-focus;
       display: block;
       color: var(--page-text);
-
-      &:focus-visible {
-        outline: 2px solid;
-        outline-offset: 0.25rem;
-      }
     }
   }
 

@@ -14,15 +14,15 @@
 }
 
 .tibop-mobile-dropdown-link {
+  @apply tab-focus;
 
   & svg {
     width: auto;
     height: 2.25rem;
   }
 
-  &:focus {
-    outline: 2px solid var(--tibop-header-text);
-    outline-offset: 0.25rem;
+  &:focus-visible {
+    outline-color: var(--tibop-header-text);
   }
 }
 
@@ -33,6 +33,7 @@
 .tibop-mobile-dropdown {
 
   & .tibop-locale {
+    @apply tab-focus;
     display: block;
     padding: 0;
     color: var(--tibop-header-text);
@@ -40,7 +41,6 @@
 
     &:hover,
     &:focus-visible {
-      text-decoration: none;
       color: var(--tibop-header-text);
     }
   }

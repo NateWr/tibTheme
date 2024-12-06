@@ -27,10 +27,12 @@
   padding-left: 2rem;
   padding-right: 2rem;
   overflow-x: hidden;
+  z-index: 0;
 }
 
 .tibop-about-line {
   position: relative;
+  z-index: -1;
 
   > svg {
     width: 75vw;
@@ -54,7 +56,7 @@
   flex-direction: column;
   gap: 2rem;
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 
 .tibop-about {
@@ -120,13 +122,9 @@
   line-height: 1.25;
 
   & a {
+    @apply tab-focus;
     color: var(--page-text);
     text-decoration: none;
-
-    &:focus-visible {
-      outline: 2px solid;
-      outline-offset: 2px;
-    }
   }
 }
 

@@ -22,12 +22,12 @@
   }
 
   .tibop-header-link {
+    @apply tab-focus;
     display: flex;
     border-radius: 0.25rem;
 
     &:focus-visible {
-      outline: 2px solid var(--tibop-header-text);
-      outline-offset: 0.25rem;
+      outline-color: var(--tibop-header-text);
     }
 
     & svg {
@@ -116,6 +116,7 @@
       &:focus-visible {
         outline: 2px solid;
       }
+
       &:hover {
         background: none;
 
@@ -160,14 +161,9 @@
       }
 
       & a {
+        @apply tab-focus;
         color: var(--tibop-header-text);
         border-radius: 9999px;
-
-        &:focus-visible {
-          outline: 2px solid;
-          outline-offset: 0.5em;
-          text-decoration: none;
-        }
       }
     }
 
@@ -207,9 +203,10 @@
           color: var(--tibop-header-text);
         }
 
+        @apply tab-focus;
+
         &:focus-visible {
           background: transparent;
-          outline: 2px solid;
           color: var(--tibop-header-text);
         }
       }

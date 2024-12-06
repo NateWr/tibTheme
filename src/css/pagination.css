@@ -10,6 +10,7 @@
 
   & .next,
   & .prev {
+    @apply tab-focus;
     color: var(--page-text);
 
     &:focus-visible {

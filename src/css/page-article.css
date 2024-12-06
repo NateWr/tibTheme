@@ -74,13 +74,9 @@
       line-height: 1.25;
 
       & a {
+        @apply tab-focus;
         line-height: 1.25;
         color: var(--page-text);
-
-        &:focus-visible {
-          outline: 2px solid;
-          outline-offset: 0.25rem;
-        }
       }
     }
 
@@ -111,13 +107,8 @@
   & .doi {
 
     & a {
+      @apply tab-focus;
       color: var(--page-text);
-
-      &:focus-visible {
-        outline: 2px solid;
-        outline-offset: 2px;
-        text-decoration: none;
-      }
     }
   }
 
@@ -130,13 +121,8 @@
     }
 
     & a {
+      @apply tab-focus;
       color: var(--page-text);
-
-      &:focus-visible {
-        outline: 2px solid;
-        outline-offset: 2px;
-        text-decoration: none;
-      }
     }
   }
 
@@ -163,13 +149,8 @@
       }
 
       & a {
+        @apply tab-focus;
         color: var(--page-text);
-
-        &:focus-visible {
-          outline: 2px solid;
-          outline-offset: 0.125rem;
-          text-decoration: none;
-        }
       }
     }
   }
@@ -245,6 +226,7 @@
       }
 
       & a {
+        @apply tab-focus;
         display: inline-block;
         padding: 0.5rem;
         border: none;
@@ -256,7 +238,6 @@
         }
 
         &:focus-visible {
-          outline: 2px solid;
           background: transparent;
         }
       }
@@ -264,6 +245,7 @@
       & .label {
         padding: 1rem;
         background: var(--page-shade);
+        border: none;
       }
     }
   }

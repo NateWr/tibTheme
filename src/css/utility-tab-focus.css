@@ -1,0 +1,14 @@
+/**
+ * Helper class to apply focus styles
+ *
+ * These styles indicate where the focus is when the user
+ * navigates by keyboard.
+ */
+.tab-focus {
+
+  &:focus-visible {
+    outline: 2px solid;
+    outline-offset: 2px;
+    text-decoration: none;
+  }
+}

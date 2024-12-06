@@ -19,10 +19,12 @@
     color: var(--header-text);
   }
 
+  @apply tab-focus;
+
   &:focus-visible {
     background: var(--header-bg);
     color: var(--header-text);
-    outline: 2px solid var(--header-text);
+    outline-color: var(--header-text);
     outline-offset: -0.25rem;
   }
 }

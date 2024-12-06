@@ -21,13 +21,9 @@
     font-size: 1.25rem;
 
     & a {
+      @apply tab-focus;
       display: block;
       color: var(--color-text);
-
-      &:focus-visible {
-        outline: 2px solid;
-        outline-offset: 2px;
-      }
     }
   }
 
@@ -41,6 +37,7 @@
   }
 
   & .read_more {
+    @apply tab-focus;
     font-size: 1rem;
     color: var(--page-text);
 
@@ -50,8 +47,6 @@
 
     &:focus-visible {
       color: var(--page-text);
-      outline: 2px solid;
-      outline-offset: 2px;
     }
   }
 }

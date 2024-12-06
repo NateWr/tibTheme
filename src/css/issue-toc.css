@@ -33,9 +33,10 @@ body {
   & .cover {
     display: inline-block;
 
+    @apply tab-focus;
+
     &:focus-visible {
-      outline: 2px solid var(--page-text);
-      outline-offset: 0.25rem;
+      outline-color: var(--page-text);
     }
 
     & img {
@@ -51,11 +52,7 @@ body {
     & .doi a {
       color: var(--page-text);
 
-      &:focus-visible {
-        outline: 2px solid;
-        outline-offset: 2px;
-        text-decoration: none;
-      }
+      @apply tab-focus;
     }
   }
 

@@ -18,15 +18,9 @@
 .page_login {
 
   & .password a {
+    @apply tab-focus;
     display: inline-block;
     color: var(--page-text);
-
-    &:focus-visible {
-      outline: 2px solid;
-      outline-offset: 2px;
-      text-decoration: none;
-
-    }
   }
 }
 
@@ -44,13 +38,8 @@
     @apply tibop-notification;
 
     & .pkp_form_error_list a {
+      @apply tab-focus;
       color: var(--page-text);
-
-      &:focus-visible {
-        outline: 2px solid;
-        outline-offset: 2px;
-        text-decoration: none;
-      }
     }
   }
 }
@@ -60,13 +49,8 @@
   & .registration_complete_actions {
 
     & a {
+      @apply tab-focus;
       color: var(--page-text);
-
-      &:focus-visible {
-        outline: 2px solid;
-        outline-offset: 2px;
-        text-decoration: none;;
-      }
     }
   }
 }

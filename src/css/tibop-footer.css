@@ -73,6 +73,7 @@
     margin-bottom: 0;
 
     & a {
+      @apply tab-focus;
       display: inline-block;
       padding: 0.25rem 0.5rem;
       color: var(--footer-text);
@@ -80,10 +81,6 @@
       font-size: 1rem;
       line-height: 1.25;
       font-weight: 600;
-
-      &:focus-visible {
-        outline: 2px solid;
-      }
 
       &:has(.task_count) {
         white-space: nowrap;
@@ -130,12 +127,8 @@
     }
 
     & a {
+      @apply tab-focus;
       color: var(--footer-text);
-
-      &:focus-visible {
-        outline: 2px solid;
-        outline-offset: 0.25em;
-      }
     }
   }
 
@@ -174,11 +167,11 @@
 }
 
 .tibop-footer-service-link {
+  @apply tab-focus;
   align-self: flex-start;
 
   &:focus-visible {
-    outline: 2px solid var(--footer-text);
-    outline-offset: 0.25rem;
+    outline-color: var(--footer-text);
   }
 
   & svg {
@@ -199,14 +192,14 @@
   }
 
   & a {
+    @apply tab-focus;
     font-weight: 500;
     text-decoration: none;
     color: var(--footer-text);
     border-radius: 9999px;
 
     &:focus-visible {
-      outline: 2px solid;
-      outline-offset: 0.25rem;
+      outline-offset: 0.5rem;
     }
   }
 }
@@ -218,13 +211,22 @@
   }
 
   & .pl-partner-logo {
+    @apply tab-focus;
     flex: 0 0 8rem;
     max-height: 5rem;
     padding: 1rem;
 
     &:focus-visible {
-      outline: 2px solid var(--footer-text);
+      outline-color: var(--footer-text);
     }
+  }
+}
+
+.tibop-footer-ojs {
+  @apply tab-focus;
+
+  &:focus-visible {
+    outline-color: var(--footer-text);
   }
 }
 
@@ -310,8 +312,9 @@
             background: transparent;
           }
 
+          @apply tab-focus;
+
           &:focus-visible {
-            outline: 2px solid;
             background: transparent;
           }
         }
