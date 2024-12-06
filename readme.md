@@ -23,6 +23,27 @@ Build JS/CSS assets.
 npm run build
 ```
 
+## Setup
+
+Follow these steps when setting the theme up in a new environment.
+
+### Site Setup
+
+1. Go to **Administration > Site Settings > Plugins** and install and enable the theme as well as the Partner Logos plugin.
+2. Go to **Administration > Site Settings > Appearance** and select the theme. While on the same page, set the **Colour** to `#005C5f` and select the **Conference Proceedings.
+3. Go to **Administration > Site Settings > Appearance > Setup** and upload the TIB Open Publishing Logo.
+4. Go to **Administration > Site Settings > Site Setup > Information > About the Site** and enter a brief description of the service.
+5. Go to **Administration > Site Settings > Site Setup > Navigation > Add Menu**. Create a menu and assign it to the `policy` area in the **Active Theme Navigation Areas** dropdown. Add links to this menu pointing to your pages about accessibility, privacy, etc.
+6. Go to **Administration > Site Settings > Site Setup > Navigation > Add Menu**. Create a menu and assign it to the `quicklinks` area in the **Active Theme Navigation Areas** dropdown. Add links to this menu pointing to the main pages you want to appear below the **About the Site** text on the homepage.
+
+### Journal / Conference Proceeding Setup
+
+1. Go to **Settings > Website > Plugins** and install and enable the theme as well as the Partner Logos plugin.
+2. Go to **Settings > Website > Appearance** and select the theme. While on the same page, check the **Journal Summary** box and save the form.
+3. Go to **Settings > Website > Appearance > Setup** and upload a logo, if the journal or conference has one.
+4. Go to **Settings > Journal > Masthead** and enter a short description of the journal in the **Journal Summary**.
+5. Go to **Settings > Website > Site Setup > Navigation > Add Menu**. Create a menu and assign it to the `quicklinks` area in the **Active Theme Navigation Areas** dropdown. Add links to this menu pointing to the main pages you want to appear below the **Journal Summary** text on the homepage.
+
 ## Development
 
 This theme uses [Vite](https://vitejs.dev/) to build CSS/JS assets. Run the following commands to sync CSS/JS assets with Vite's HMR server while editing the theme.
