@@ -18,7 +18,7 @@
         <div class="tibop-footer-column tibop-footer-column-about">
           <div class="tibop-footer-desc">
             {if $pageFooter}
-              {$pageFooter|strip_unsafe_html}
+              {$pageFooter}
             {else}
               {$currentContext->getLocalizedData('description')|strip_unsafe_html}
             {/if}
@@ -81,7 +81,7 @@
         <h2 class="pkp_screen_reader">
           {translate key="plugins.themes.tibTheme.partners"}
         </h2>
-        {$partnerLogos}
+        {$partnerLogosHtml}
       </div>
     {else}
       <a

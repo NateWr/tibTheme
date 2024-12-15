@@ -1,4 +1,2 @@
 <?php
-require_once('TibTheme.inc.php');
-
-return new TibTheme();
+return new \APP\plugins\themes\tibTheme\TibTheme();

@@ -1,12 +1,22 @@
 <?php
-import('lib.pkp.classes.plugins.ThemePlugin');
-import('plugins.themes.tibTheme.classes.TibThemeHelper');
-import('plugins.themes.tibTheme.classes.TibThemeTemplatePlugin');
-import('plugins.themes.tibTheme.classes.TibThemeViteLoader');
+namespace APP\plugins\themes\tibTheme;
+
+use APP\core\Application;
+use APP\core\Services;
+use APP\plugins\generic\partnerLogos\PartnerLogosPlugin;
+use APP\plugins\themes\tibTheme\classes\TemplatePlugin;
+use APP\plugins\themes\tibTheme\classes\ThemeHelper;
+use APP\plugins\themes\tibTheme\classes\ViteLoader;
+use APP\template\TemplateManager;
+use PKP\db\DAORegistry;
+use PKP\plugins\Hook;
+use PKP\plugins\PluginRegistry;
+use PKP\plugins\ThemePlugin;
+use stdClass;
 
 class TibTheme extends ThemePlugin
 {
-    protected TibThemeHelper $themeHelper;
+    protected ThemeHelper $themeHelper;
 
     public function isActive()
     {
@@ -36,8 +46,8 @@ class TibTheme extends ThemePlugin
         $this->addStyle('variables', $this->getCssVariables(), ['inline' => true]);
         $this->addViteAssets(['src/main.js']);
 
-        HookRegistry::register('TemplateManager::display', [$this, 'addTemplateData']);
-        HookRegistry::register('TemplateManager::display', [$this, 'displayTemplate'], HOOK_SEQUENCE_LAST);
+        Hook::add('TemplateManager::display', [$this, 'addTemplateData']);
+        Hook::add('TemplateManager::display', [$this, 'displayTemplate'], Hook::SEQUENCE_LAST);
     }
 
     public function getDisplayName()
@@ -82,7 +92,7 @@ class TibTheme extends ThemePlugin
             /** @var PartnerLogosPlugin */
             $partnerLogosPlugin = PluginRegistry::getPlugin('generic', 'partnerlogosplugin');
             if ($partnerLogosPlugin) {
-                $templateMgr->assign('partnerLogos', $partnerLogosPlugin->getHtml($context));
+                $templateMgr->assign('partnerLogosHtml', $partnerLogosPlugin->getHtml($context));
             }
         }
 
@@ -93,7 +103,7 @@ class TibTheme extends ThemePlugin
         $templateMgr->assign([
             'tibopSitePolicyMenu' => $this->getMenu(
                 'policy',
-                CONTEXT_ID_NONE,
+                Application::CONTEXT_ID_NONE,
                 'frontend/tibop-menu-policy.tpl',
             ),
         ]);
@@ -116,7 +126,7 @@ class TibTheme extends ThemePlugin
      */
     protected function addCustomPageData(TemplateManager $templateMgr): void
     {
-        $op = $templateMgr->get_template_vars('requestedOp');
+        $op = $templateMgr->getTemplateVars('requestedOp');
         $templateMgr->assign([
             'requestedOp' => "$op tibop_custom_page",
         ]);
@@ -144,7 +154,7 @@ class TibTheme extends ThemePlugin
         }
 
         if ($template === 'frontend/pages/indexJournal.tpl') {
-            $contextId = Application::get()->getRequest()->getContext()?->getId() ?? CONTEXT_ID_NONE;
+            $contextId = Application::get()->getRequest()->getContext()?->getId() ?? Application::CONTEXT_ID_NONE;
             $output = $templateMgr->fetch('frontend/pages/indexJournal.tpl');
             $output = $this->addQuickLinksMenu($output, $contextId);
             return true;
@@ -241,7 +251,7 @@ class TibTheme extends ThemePlugin
     /**
      * Get a navigation menu's template
      */
-    protected function getMenu(string $name, int $contextId =  CONTEXT_ID_NONE, string $path = ''): string
+    protected function getMenu(string $name, int $contextId =  Application::CONTEXT_ID_NONE, string $path = ''): string
     {
         /** @var NavigationMenuDAO $navigationMenuDao */
         $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
@@ -277,10 +287,10 @@ class TibTheme extends ThemePlugin
      */
     protected function useThemeHelper(): void
     {
-        $this->themeHelper = new TibThemeHelper(TemplateManager::getManager(Application::get()->getRequest()));
+        $this->themeHelper = new ThemeHelper(TemplateManager::getManager(Application::get()->getRequest()));
         $this->themeHelper->addCommonTemplatePlugins();
         $this->themeHelper->addTemplatePlugin(
-            new TibThemeTemplatePlugin(
+            new TemplatePlugin(
                 type: 'function',
                 name: 'load_menu',
                 callback: [$this, 'loadMenu'],
@@ -317,7 +327,7 @@ class TibTheme extends ThemePlugin
             Application::get()->getRequest()
         );
 
-        $viteLoader = new TibThemeViteLoader(
+        $viteLoader = new ViteLoader(
             templateManager: $templateMgr,
             manifestPath: dirname(__FILE__) . '/dist/.vite/manifest.json',
             serverPath: join('/', [dirname(__FILE__), '.vite.server.json']),

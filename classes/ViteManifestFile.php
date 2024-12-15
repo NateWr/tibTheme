@@ -1,11 +1,13 @@
 <?php
+namespace APP\plugins\themes\tibTheme\classes;
+
 /**
  * This class represents a file from Vite's `manifest.json` file, which contains
  * records of all published files, their dependencies, and other metadata.
  *
  * @see https://github.com/vitejs/vite/blob/e7adcf0878bd7f3c0b7bb5c9a1d7e6f0d55d9650/packages/vite/src/node/plugins/manifest.ts#L18-L28
  */
-class TibThemeViteManifestFile
+class ViteManifestFile
 {
     public function __construct(
         /**

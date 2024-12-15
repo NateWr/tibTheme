@@ -1,7 +1,9 @@
 <?php
+namespace APP\plugins\themes\tibTheme\classes;
 
-import('lib.pkp.classes.plugins.ThemePlugin');
-import('plugins.themes.tibTheme.classes.TibThemeViteManifestFile');
+use APP\template\TemplateManager;
+use PKP\plugins\ThemePlugin;
+use RuntimeException;
 
 /**
  * Initialize Vite integration
@@ -13,7 +15,7 @@ import('plugins.themes.tibTheme.classes.TibThemeViteManifestFile');
  * All assets are registered through the PKP's TemplateManager
  * class, or a ThemePlugin class if passed in the constructor.
  */
-class TibThemeViteLoader
+class ViteLoader
 {
     public const DEFAULT_VITE_SERVER_URL = 'http://localhost:5173/';
 
@@ -159,7 +161,7 @@ class TibThemeViteLoader
         }
 
         return array_map(
-            fn(array $chunk) => TibThemeViteManifestFile::create($chunk),
+            fn(array $chunk) => ViteManifestFile::create($chunk),
             json_decode(file_get_contents($this->manifestPath), true)
         );
     }

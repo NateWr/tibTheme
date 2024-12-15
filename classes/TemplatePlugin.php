@@ -1,8 +1,10 @@
 <?php
+namespace APP\plugins\themes\tibTheme\classes;
+
 /**
  * Class to represent a Smarty plugin
  */
-class TibThemeTemplatePlugin
+class TemplatePlugin
 {
     public function __construct(
         /**

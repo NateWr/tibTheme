@@ -1,8 +1,9 @@
 <?php
-/**
- * Helper class to register custom Smarty plugin
- */
-import('plugins.themes.tibTheme.classes.TibThemeTemplatePlugin');
+namespace APP\plugins\themes\tibTheme\classes;
+
+use APP\template\TemplateManager;
+use Exception;
+use PKP\plugins\Hook;
 
 /**
  * A helper class for building custom themes for
@@ -17,7 +18,7 @@ import('plugins.themes.tibTheme.classes.TibThemeTemplatePlugin');
  *
  * @see https://www.smarty.net
  */
-class TibThemeHelper
+class ThemeHelper
 {
     /**
      * Number of page buttons to display before truncating
@@ -26,7 +27,7 @@ class TibThemeHelper
     public const DEFAULT_MAX_PAGES = 9;
 
     /**
-     * @var TibThemeTemplatePlugin[]
+     * @var TemplatePlugin[]
      */
     protected array $templatePlugins = [];
 
@@ -34,7 +35,7 @@ class TibThemeHelper
         protected TemplateManager $templateMgr
     ) {
         $this->templateMgr = $templateMgr;
-        HookRegistry::register('TemplateManager::display', [$this, 'registerTemplatePlugins']);
+        Hook::add('TemplateManager::display', [$this, 'registerTemplatePlugins']);
     }
 
     /**
@@ -46,7 +47,7 @@ class TibThemeHelper
     public function addCommonTemplatePlugins(): void
     {
         $this->addTemplatePlugin(
-            new TibThemeTemplatePlugin(
+            new TemplatePlugin(
                 type: 'function',
                 name: 'th_locales',
                 callback: [$this, 'setLocales']
@@ -57,7 +58,7 @@ class TibThemeHelper
     /**
      * Add a template plugin
      */
-    public function addTemplatePlugin(TibThemeTemplatePlugin $plugin): void
+    public function addTemplatePlugin(TemplatePlugin $plugin): void
     {
         $this->templatePlugins[] = $plugin;
     }
@@ -86,7 +87,7 @@ class TibThemeHelper
      * This wrapper function prevents a fatal error if a smarty plugin
      * with the same name has already been registered.
      */
-    protected function safeRegisterTemplatePlugin(TibThemeTemplatePlugin $plugin): void
+    protected function safeRegisterTemplatePlugin(TemplatePlugin $plugin): void
     {
         $registered = isset($this->templateMgr->registered_plugins[$plugin->type][$plugin->name]);
         if ($registered && $plugin->override) {
