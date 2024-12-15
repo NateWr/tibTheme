@@ -78,6 +78,9 @@
     </div>
     {if $currentContext && $activeTheme->getOption('showPartnerLogos') === 'show'}
       <div class="tibop-footer-partners">
+        <h2 class="pkp_screen_reader">
+          {translate key="plugins.themes.tibTheme.partners"}
+        </h2>
         {$partnerLogos}
       </div>
     {else}

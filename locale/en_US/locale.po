@@ -19,6 +19,9 @@ msgstr "View Series"
 msgid "plugins.themes.tibTheme.currentVolume"
 msgstr "Current Volume"
 
+msgid "plugins.themes.tibTheme.partners"
+msgstr "Partners"
+
 msgid "plugins.themes.tibTheme.option.conferenceContexts.label"
 msgstr "Conference Proceedings"
 
