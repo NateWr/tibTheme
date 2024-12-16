@@ -148,6 +148,10 @@
         text-transform: uppercase;
       }
 
+      & p {
+        line-height: 1.25;
+      }
+
       & a {
         @apply tab-focus;
         color: var(--page-text);
