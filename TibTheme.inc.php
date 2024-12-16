@@ -26,6 +26,8 @@ class TibTheme extends ThemePlugin
             $this->addMenuArea(['primary', 'user', 'quicklinks', 'policy']);
         }
 
+        $this->removeOption('typography');
+
         if (!$request->getContext()) {
             $this->addSiteConferencesOption();
         } else {
