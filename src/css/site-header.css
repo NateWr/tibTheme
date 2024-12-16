@@ -54,7 +54,12 @@
 
     + .pkp_head_wrapper {
       padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
       min-height: auto;
+      margin-right: 12rem;
+      margin-left: 12rem;
+      width: auto;
 
       .pkp_site_name_wrapper {
         display: none;
