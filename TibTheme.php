@@ -251,7 +251,7 @@ class TibTheme extends ThemePlugin
     /**
      * Get a navigation menu's template
      */
-    protected function getMenu(string $name, int $contextId =  Application::CONTEXT_ID_NONE, string $path = ''): string
+    protected function getMenu(string $name, ?int $contextId =  Application::CONTEXT_ID_NONE, string $path = ''): string
     {
         /** @var NavigationMenuDAO $navigationMenuDao */
         $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
