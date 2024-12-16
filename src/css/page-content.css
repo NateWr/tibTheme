@@ -8,7 +8,7 @@
 .tibop_custom_page .pkp_structure_main,
 .page_about,
 .page_submissions,
-.page_editorial_team,
+.page_masthead,
 .page_privacy,
 .page_announcement,
 .page_announcements,
@@ -41,12 +41,47 @@
   }
 }
 
+.page_masthead {
+
+  & .user_listing {
+
+    & li {
+      display: flex;
+      flex-direction: column;
+    }
+
+    & .date_start {
+      order: 999;
+      font-size: 0.875rem;
+      line-height: 1.25;
+      color: var(--page-text);
+    }
+
+    & .name {
+      font-size: 1rem;
+      line-height: 1.25;
+      font-weight: 600;
+    }
+
+    & .affiliation {
+      font-size: 1rem;
+      line-height: 1.25;
+      font-weight: 400;
+      color: var(--page-text);
+    }
+  }
+
+  & hr {
+    display: none;
+  }
+}
+
 @media (--laptops-sm) {
 
   & .tibop_custom_page .pkp_structure_main,
   & .page_about,
   & .page_submissions,
-  & .page_editorial_team,
+  & .page_masthead,
   & .page_privacy,
   & .page_announcement,
   & .page_announcements,
