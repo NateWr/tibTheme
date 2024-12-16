@@ -8,7 +8,9 @@
   </div><!-- pkp_structure_main -->
 </div><!-- pkp_structure_content -->
 
+<a id="pkp_content_footer"></a>
 <footer class="tibop-footer-wrapper">
+
   {if $currentContext}
     <div class="tibop-footer">
       <div class="tibop-footer-title">
