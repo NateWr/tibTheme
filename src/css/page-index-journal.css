@@ -3,6 +3,14 @@
  */
 .pkp_page_index {
 
+  & .highlights {
+    margin: 0 calc(-1 * var(--page-inline-padding));
+
+    & .swiper-slide-button {
+      @apply tibop-button;
+    }
+  }
+
   & .homepage_about {
     display: flex;
     flex-direction: column;
@@ -102,6 +110,17 @@
 
   .pkp_page_index {
 
+    & .highlights {
+
+      & .swiper-wrapper {
+        padding-bottom: 0;
+      }
+
+      & .swiper-slide-content {
+        padding-bottom: 3rem;
+      }
+    }
+
     & .homepage_about {
       font-size: 1.5rem;
 
@@ -136,6 +155,16 @@
 }
 
 @media (--tablets-landscape) {
+
+  .pkp_page_index .highlights {
+
+    & .swiper-slide-image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      max-height: 24rem;
+    }
+  }
 
   .homepage_image.homepage_image {
     margin-top: 0;
@@ -203,9 +232,38 @@
   }
 }
 
+@media (--laptops-sm) {
+
+  .pkp_page_index {
+
+    & .highlights {
+
+      & .swiper-slide-title {
+        font-size: 1.25rem;
+        line-height: 1.25;
+      }
+
+      & .swiper-slide-desc {
+        font-size: 1.125rem;
+      }
+    }
+  }
+}
+
 @media (--laptops) {
 
   .pkp_page_index {
+
+    & .highlights {
+
+      & .swiper-slide-title {
+        font-size: 1.5rem;
+      }
+
+      & .swiper-slide-desc {
+        font-size: 1.25rem;
+      }
+    }
 
     .current_issue_title {
       font-size: 3rem;
