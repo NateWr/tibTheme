@@ -4,11 +4,22 @@
 .pkp_page_index {
 
   & .highlights {
-    margin: 0 calc(-1 * var(--page-inline-padding));
+    margin: 0 calc(-1 * var(--page-inline-padding)) 6rem;
 
     & .swiper-slide-button {
       @apply tibop-button;
     }
+  }
+
+
+  /**
+   * Anchor links interfere with flex layouts
+   * because they are treated as flex children
+   */
+  & .homepage_about a#homepageAbout,
+  & .cmp_announcements a#homepageAnnouncements,
+  & .current_issue a#homepageIssue {
+    position: absolute;
   }
 
   & .homepage_about {
@@ -237,6 +248,7 @@
   .pkp_page_index {
 
     & .highlights {
+      margin-bottom: 6rem;
 
       & .swiper-slide-title {
         font-size: 1.25rem;
