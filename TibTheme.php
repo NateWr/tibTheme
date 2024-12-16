@@ -184,7 +184,7 @@ class TibTheme extends ThemePlugin
                         'label' => $context->name,
                     ];
                 },
-                Services::get('context')->getManySummary(['userId' => $user->getId()])
+                app()->get('context')->getManySummary(['userId' => $user->getId()])
             );
         }
 
@@ -262,7 +262,7 @@ class TibTheme extends ThemePlugin
         }
 
         $navigationMenu = $navigationMenus[0];
-        Services::get('navigationMenu')->getMenuTree($navigationMenu);
+        app()->get('navigationMenu')->getMenuTree($navigationMenu);
 
         $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
         $templateMgr->assign([
