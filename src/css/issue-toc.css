@@ -56,7 +56,15 @@ body {
     }
   }
 
-  .section {
+  & .galleys {
+
+    & a {
+      @apply tibop-button-grey;
+    }
+  }
+
+  & .galleys,
+  & .section {
     margin-bottom: 6rem;
 
     > h2,
@@ -83,6 +91,7 @@ body {
       width: 16rem;
     }
 
+    & .galleys,
     & .section {
       padding: 0;
       margin-top: 0;
@@ -140,6 +149,7 @@ body {
       }
     }
 
+    & .galleys,
     & .sections {
       margin-left: var(--issue-column-left-width);
       padding-left: calc(var(--issue-gap) - 1rem);
@@ -159,6 +169,7 @@ body {
       margin-top: 4rem;
     }
 
+    & .galleys,
     & .section {
 
       > h2,
