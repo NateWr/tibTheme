@@ -210,6 +210,11 @@
       line-height: 1.25;
     }
 
+    & .citation_formats {
+      position: relative;
+      border: none;
+    }
+
     & .citation_formats_button {
       @apply input;
       font-size: 1rem;
@@ -217,7 +222,11 @@
     }
 
     & .citation_formats_list {
+      position: absolute;
+      top: 100%;
+      z-index: 9999;
       background: var(--page-bg);
+      border: 1px solid var(--page-text);
       font-size: 1rem;
       border-radius: var(--radius);
 
@@ -228,9 +237,10 @@
       & a {
         @apply tab-focus;
         display: inline-block;
-        padding: 0.5rem;
+        padding: 0.25rem 0.5rem;
         border: none;
         border-radius: var(--radius);
+        font-size: 1rem;
         color: var(--page-text);
 
         &:hover {
