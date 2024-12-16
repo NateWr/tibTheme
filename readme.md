@@ -36,6 +36,32 @@ Follow these steps when setting the theme up in a new environment.
 5. Go to **Administration > Site Settings > Site Setup > Navigation > Add Menu**. Create a menu and assign it to the `policy` area in the **Active Theme Navigation Areas** dropdown. Add links to this menu pointing to your pages about accessibility, privacy, etc.
 6. Go to **Administration > Site Settings > Site Setup > Navigation > Add Menu**. Create a menu and assign it to the `quicklinks` area in the **Active Theme Navigation Areas** dropdown. Add links to this menu pointing to the main pages you want to appear below the **About the Site** text on the homepage.
 
+### Site Partners
+
+The partners page on the TIB Open Publishing site uses custom HTML code to show a group of logos in a custom page. This code must be entered using the following steps:
+
+1. Go to **Administration > Site Settings > Site Setup > Navigation > Add Item**.
+2. Select Custom Page for the **Navigation Menu Type**.
+3. Under the **Content** section, click the button to view the HTML code.
+
+![Screenshot showing view source code button](./readme-view-source-code.png)
+
+Add HTML code with the following structure. Note that logos may be linked or unlinked. You can use as many or as few logos as you want.
+
+```html
+<div class="partner-logos">
+  <img src="" width="100" height="100" />
+  <img src="" width="100" height="100" />
+  <img src="" width="100" height="100" />
+  <a href="https://example.org">
+    <img src="" width="100" height="100" />
+  </a>
+  <img src="" width="100" height="100" />
+</div>
+```
+
+This will add an empty box for each `<img>` tag. Replace these with logos by clicking on each box and clicking the icon to insert an image.
+
 ### Journal / Conference Proceeding Setup
 
 1. Go to **Settings > Website > Plugins** and install and enable the theme as well as the Partner Logos plugin.
