@@ -103,7 +103,7 @@ class TibTheme extends ThemePlugin
         $templateMgr->assign([
             'tibopSitePolicyMenu' => $this->getMenu(
                 'policy',
-                Application::CONTEXT_ID_NONE,
+                Application::SITE_CONTEXT_ID,
                 'frontend/tibop-menu-policy.tpl',
             ),
         ]);
@@ -154,7 +154,7 @@ class TibTheme extends ThemePlugin
         }
 
         if ($template === 'frontend/pages/indexJournal.tpl') {
-            $contextId = Application::get()->getRequest()->getContext()?->getId() ?? Application::CONTEXT_ID_NONE;
+            $contextId = Application::get()->getRequest()->getContext()?->getId() ?? Application::SITE_CONTEXT_ID;
             $output = $templateMgr->fetch('frontend/pages/indexJournal.tpl');
             $output = $this->addQuickLinksMenu($output, $contextId);
             return true;
@@ -251,7 +251,7 @@ class TibTheme extends ThemePlugin
     /**
      * Get a navigation menu's template
      */
-    protected function getMenu(string $name, ?int $contextId =  Application::CONTEXT_ID_NONE, string $path = ''): string
+    protected function getMenu(string $name, ?int $contextId =  Application::SITE_CONTEXT_ID, string $path = ''): string
     {
         /** @var NavigationMenuDAO $navigationMenuDao */
         $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
