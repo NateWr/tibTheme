@@ -8,4 +8,9 @@
   background: var(--page-shade);
   color: var(--page-text);
   border: none;
+
+  & a {
+    @apply tab-focus;
+    color: var(--page-text);
+  }
 }
