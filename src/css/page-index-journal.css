@@ -6,6 +6,13 @@
   & .highlights {
     margin: 0 calc(-1 * var(--page-inline-padding)) 6rem;
 
+    /**
+     * Fix bug where nav menu dropdown is hidden
+     * behind highlights
+     */
+    position: relative;
+    z-index: 0;
+
     & .swiper-slide-button {
       @apply tibop-button;
     }
