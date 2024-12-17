@@ -9,7 +9,7 @@
             tibop-locale-current
           {/if}
         "
-        href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey source=$smarty.server.REQUEST_URI}"
+        href="{url page="user" op="setLocale" path=$localeKey}"
       >
         <abbr title="{$name|escape}">
           {$name|substr:0:2}
