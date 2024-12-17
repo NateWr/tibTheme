@@ -30,7 +30,7 @@ jobs:
     steps:
       - uses: pkp/pkp-github-actions@v1
         with:
-          node_version: 12
+          node_version: 18
           branch: stable-3_3_0
           repository: pkp
           plugin: true
