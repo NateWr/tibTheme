@@ -77,7 +77,7 @@
           {if $isUserLoggedIn}
             <hr class="dropdown-divider">
             <div class="tibop-header-logged-in-as">
-              {translate key="plugins.themes.tibTheme.loggedInAs" username=$currentUser->getData('username')}
+              {translate key="plugins.themes.tibTheme.loggedInAs" username=$currentUser->getData('userName')}
               <a
                 {if $isUserLoggedInAs}
                   href="{url page="login" op="signOutAsUser"}"
