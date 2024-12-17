@@ -1,28 +1,21 @@
 describe("Enables TIB OP theme and dependencies", function () {
   it("Enables and selects the theme", function () {
     cy.login("admin", "admin", "publicknowledge");
-
-    cy.get('a:contains("Website")').click();
-    cy.get('button[id="plugins-button"]').click();
-
-    // Find and enable the theme
-    cy.get(
-      'input[id^="select-cell-tibtheme-enabled"]'
-    ).click();
-    cy.get(
-      "div:contains('The plugin \"TIB Open Publishing Theme\" has been enabled.')"
-    );
-
-    // Appearance tab does not get updated until the reload
-    cy.reload();
-
-    // Select the new theme
+    cy.get('a:contains("Settings")')
+      .click();
+    cy.get('a:contains("Website")')
+      .click();
+    cy.get('button[id="plugins-button"]')
+      .click();
+    cy.get('input[id^="select-cell-tibtheme-enabled"]')
+      .click();
+    cy.get("div:contains('The plugin \"TIB Open Publishing Theme\" has been enabled.')");
+    cy.reload(); // Refresh appearance tab to be able to select theme
     cy.get('button[id="appearance-button"]').click();
-    cy.get('select[id="theme-themePluginPath-control"]').select(
-      "TIB Open Publishing Theme"
-    );
-
-    cy.get('#theme button:contains("Save")').click();
+    cy.get('select[id="theme-themePluginPath-control"]')
+      .select("TIB Open Publishing Theme");
+    cy.get('#theme button:contains("Save")')
+      .click();
   });
 
   it("Tests the theme without any configuration", function () {
@@ -32,17 +25,15 @@ describe("Enables TIB OP theme and dependencies", function () {
 
   it.skip("Enables the Partner Logos plugin", function() {
     cy.login("admin", "admin", "publicknowledge");
-
-    cy.get('a:contains("Website")').click();
-    cy.get('button[id="plugins-button"]').click();
-
-    // Find and enable the Partner Logos plugin
-    cy.get(
-      'input[id^="select-cell-partnerlogosplugin-enabled"]'
-    ).click();
-    cy.get(
-      "div:contains('The plugin \"Partner Logos\" has been enabled.')"
-    );
+    cy.get('a:contains("Settings")')
+      .click();
+    cy.get('a:contains("Website")')
+      .click();
+    cy.get('button[id="plugins-button"]')
+      .click();
+    cy.get('input[id^="select-cell-partnerlogosplugin-enabled"]')
+      .click();
+    cy.get("div:contains('The plugin \"Partner Logos\" has been enabled.')");
   });
 
   it.skip("Views the theme after enabling the Partner Logos plugin", function () {
@@ -55,7 +46,7 @@ describe("Tests the core features", function() {
 
   it("Tests the language switcher", function() {
     cy.visit('/')
-    cy.get('.tibop-header .tibop-locale:contains("Fr") abbr[title="Français (Canada)"]')
+    cy.get('.tibop-header .tibop-locale:contains("fr") abbr[title="français"]')
       .click()
     cy.get('.pkp_site_name:contains("Journal de la connaissance du public")')
     cy.get('.tibop-header .tibop-locale:contains("En") abbr[title="English"]')
@@ -110,18 +101,23 @@ describe("Tests site-wide pages", function() {
 
   it('Creates a second journal', function() {
     cy.login("admin", "admin", "publicknowledge");
-    cy.get('.app__navItem:contains("Administration")')
+    cy.get('a:contains("Administration")')
       .click()
     cy.get('a:contains("Hosted Journals")')
       .click()
     cy.get('a:contains("Create Journal")')
       .click()
     cy.wait(1000)
-    cy.get('.pkp_modal_panel .header:contains("Create Journal")')
     cy.get('input[name^="name-en"]')
       .type('Second Journal')
     cy.get('input[name^="acronym-en"]')
       .type('sj')
+    cy.get('select[name="country"]')
+      .select('Afghanistan')
+    cy.get('input[name="contactName"]')
+      .type('Example Name')
+    cy.get('input[name="contactEmail"]')
+      .type('name@example.com')
     cy.get('input[name="urlPath"]')
       .type('sj')
     cy.get('input[name="supportedLocales"]')
@@ -137,7 +133,7 @@ describe("Tests site-wide pages", function() {
 
   it('Enables the theme at site level', function() {
     cy.login('admin', 'admin', 'publicknowledge')
-    cy.get('.app__navItem:contains("Administration")')
+    cy.get('a:contains("Administration")')
       .click()
     cy.get('a:contains("Site Settings")')
       .click()
@@ -163,7 +159,7 @@ describe("Tests site-wide pages", function() {
 
   it('Tests the language switcher', function() {
     cy.visit('/')
-    cy.get('.tibop-header .tibop-locale:contains("Fr") abbr[title="Français (Canada)"]')
+    cy.get('.tibop-header .tibop-locale:contains("fr") abbr[title="français"]')
       .click()
     cy.get('.tibop-context-title:contains("Journal de la connaissance du public")')
     cy.get('.tibop-header .tibop-locale:contains("En") abbr[title="English"]')
@@ -190,14 +186,14 @@ describe("Tests site-wide pages", function() {
     it('Tests the about the site content', function() {
       const about = 'TIB Open Publishing is an open-access platform for publishing scientific journals and conference publications.'
       cy.login('admin', 'admin', 'publicknowledge')
-      cy.get('.app__navItem:contains("Administration")')
+      cy.get('a:contains("Administration")')
         .click()
       cy.get('a:contains("Site Settings")')
         .click()
       cy.get('button:contains("Information")')
         .click()
-      cy.setTinyMceContent('siteInfo-about-control-en_US', about);
-  		cy.get('#siteInfo-about-control-en_US').click(); // Ensure blur event is fired
+      cy.setTinyMceContent('siteInfo-about-control-en', about);
+      cy.get('#siteInfo-about-control-en').click({force: true}); // Ensure blur event is fired
       cy.get('#info button:contains("Save")')
         .click();
       cy.visit('/')
