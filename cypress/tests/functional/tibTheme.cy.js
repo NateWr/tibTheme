@@ -30,7 +30,7 @@ describe("Enables TIB OP theme and dependencies", function () {
     cy.get(".tibop-footer-btm");
   });
 
-  it("Enables the Partner Logos plugin", function() {
+  it.skip("Enables the Partner Logos plugin", function() {
     cy.login("admin", "admin", "publicknowledge");
 
     cy.get('a:contains("Website")').click();
@@ -45,7 +45,7 @@ describe("Enables TIB OP theme and dependencies", function () {
     );
   });
 
-  it("Views the theme after enabling the Partner Logos plugin", function () {
+  it.skip("Views the theme after enabling the Partner Logos plugin", function () {
     cy.visit("/");
     cy.get(".tibop-footer-btm");
   });

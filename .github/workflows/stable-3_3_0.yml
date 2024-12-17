@@ -8,17 +8,29 @@ jobs:
       matrix:
         include:
           - application: ojs
-            php-version: 7.4
-            database: mysql
-          - application: ojs
             php-version: 8.0
             database: mysql
-          - application: ojs
-            php-version: 7.4
-            database: pgsql
+            test: 'test'
           - application: ojs
             php-version: 8.0
             database: pgsql
+            test: 'test'
+          - application: ojs
+            php-version: 8.1
+            database: mysql
+            test: 'test'
+          - application: ojs
+            php-version: 8.1
+            database: pgsql
+            test: 'test'
+          - application: ojs
+            php-version: 8.2
+            database: mysql
+            test: 'test'
+          - application: ojs
+            php-version: 8.2
+            database: pgsql
+            test: 'test'
 
     name: tibTheme
     steps:
